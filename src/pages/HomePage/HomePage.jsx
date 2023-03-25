@@ -1,5 +1,5 @@
 export default function NewSetlistPage() {
     return (
-      <h1>HomePage</h1>
+      <h1>Blue Elephant Setlists</h1>
     );
   }
