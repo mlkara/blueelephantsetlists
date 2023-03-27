@@ -1,5 +1,4 @@
 import { Component } from 'react';
-import { AddSetlist } from '../../utilities/users-service';
 
 export default class AddSetlistForm extends Component {
   state = {
