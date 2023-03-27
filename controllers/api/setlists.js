@@ -2,6 +2,8 @@ const Setlist = require('../models/setlist');
 const Artist = require('../models/film');
 
 module.exports = {
+    index, 
+    show,
     new: newSetlist, 
     create
 }
@@ -9,7 +11,18 @@ module.exports = {
 async function newSetlist(req, res) {
     const artists = await Artist.find({});
         res.render('artists/index', { artists });
+}
 
+function show(req, res) {
+  Setlist.findById(req.params.id, function (err, setlist) {
+    Artist.find({ setlist: Setlist._id }, function (err, setlists) {
+      res.render("setlists/show", { setlist, title: "Setlist Details", setlists });
+    });
+  });
+};
+
+function newSetlist(req, res) {
+  res.render("setlists/new", { title: "Add Setlist" });
 }
 
 function create(req, res) {

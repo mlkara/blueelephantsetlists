@@ -1,10 +1,10 @@
 /* CSS Custom Properties */
 :root {
   --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
+  --tan-1: #223554;
+  --tan-2: #223554;
+  --tan-3: #223554;
+  --tan-4: #223554;
   --orange: #F67F00;
   --text-light: #968c84;
   --text-dark: #615954;
@@ -70,7 +70,7 @@ code {
   justify-content: space-around;
   align-items: center;
   background-color: var(--tan-1);
-  color: var(--text-dark);
+  color: #FFFFFF;
   border: .1vmin solid var(--tan-3);
   border-radius: 1vmin;
   padding: .6vmin;
