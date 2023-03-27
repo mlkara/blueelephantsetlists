@@ -42,4 +42,11 @@ export function getUser() {
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
 
+export async function addSetlist(userData) {
+  const token = await usersAPI.signUp(userData);
+  localStorage.setItem('token', token);
+  return getUser();
+}
+
+
 

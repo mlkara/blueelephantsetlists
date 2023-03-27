@@ -1,30 +1,37 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const artistSchema = new Schema({
-    mbid: {
-      type: String,
-      required: true
-    },
-    tmid: {
+const venueSchema = new Schema({
+    setlistApiVenueId: {
       type: Number,
       required: true
     },
-    name: {
+    cityName: {
       type: String,
       required: true
     },
-    sortName: {
+    venueName: {
       type: String,
       required: true
     },
-    disambiguation: {
+    stateCode: {
       type: String,
       required: true
     },
-  
+    state: {
+      type: String,
+      required: true
+    },
+    countryName: {
+      type: String,
+      required: true
+    },
+    coords: {
+      long: Number,
+      lat: Number
+    },
 }, {
   timestamps: true,
 });
 
-module.exports = mongoose.model('Artist', artistSchema);
+module.exports = mongoose.model('Venue', venueSchema);

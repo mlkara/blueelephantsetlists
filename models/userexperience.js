@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const artistSchema = new Schema({
+const photoSchema = new Schema({
+  url: {type: String, required: true},
+  title: String
+}, {
+  timestamps: true,
+});
+
+const userexperienceSchema = new Schema({
     mbid: {
       type: String,
       required: true
@@ -22,9 +29,13 @@ const artistSchema = new Schema({
       type: String,
       required: true
     },
-  
+    url: {
+      type: String,
+      required: true
+    },
+    images:[photoSchema]
 }, {
   timestamps: true,
 });
 
-module.exports = mongoose.model('Artist', artistSchema);
+module.exports = mongoose.model('Userexperience', userexperienceSchema);

@@ -1,5 +1,4 @@
 const Setlist = require('../models/setlist');
-const Artist = require('../models/film');
 
 module.exports = {
     index, 
