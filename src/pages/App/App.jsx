@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 // import * as photosAPI from '../../utilities/photos-api';
 // import PhotoCard from '../../components/PhotoCard/PhotoCard';
-import AddSetlistForm from '../../components/AddSetlistForm/AddSetlistForm';
+// import AddSetlistForm from '../../components/AddSetlistForm/AddSetlistForm';
 import AuthPage from '../AuthPage/AuthPage';
 import NewSetlistPage from '../NewSetlistPage/NewSetlistPage';
 import AllArtistsPage from '../AllArtistsPage/AllArtistsPage';
@@ -24,9 +24,8 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   // const [title, setTitle] = useState('');
   // const [photos, setPhotos] = useState([]);
-  const fileInputRef = useRef();
-  const [setlist, setSetlist] = useState('');
-  const [newSetlist, setNewSetlist] = useState('');
+  // const fileInputRef = useRef();
+  
 
   useEffect(function() {
     // photosAPI.getAll().then(photos => setPhotos(photos));

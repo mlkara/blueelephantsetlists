@@ -1,8 +1,22 @@
-export default function NewSetlistPage() {
-  const [setlist, setSetlist] = useState('');
-  const [newSetlist, setNewSetlist] = useState('');
-  const [artist, setArtist] = useState('');
+import { useState, useEffect } from 'react';
 
+export default function NewSetlistPage({ user, setUser }) {
+  const [setlists, setSetlists] = useState('');
+  const [newSetlist, setNewSetlist] = useState('');
+  const [artists, setArtists] = useState('');
+  const [venues, setVenues] = useState('');
+  const [activeCat, setActiveCat] = useState('');
+
+
+  // useEffect(function() {
+  //   async function getArtist() {
+  //     const setlists = await artistsAPI.getAll();
+  //     categoriesRef.current = [...new Set(artists.map(item => artists.name))];
+  //     setVenues(items);
+  //     setActiveCat(categoriesRef.current[0]);
+  //   }
+  //   getArtists();
+  
   const addSetlist = (event) => {
     event.preventDefault();
     const newSetlistObject = {
@@ -19,14 +33,20 @@ export default function NewSetlistPage() {
     setArtists(data.data.artists);
   };
 
+  const searchVenue = async(e) => {
+    const searchValue = e.target.value; 
+    const { data } = await HTMLOutputElement.get(`/api/venues?search=${searchValue}`);
+    setVenues(data.data.venues);
+  };
+
   <div>
       <h1>Add Setlist</h1>
-      <form onSubmit={addSetlist}>
+      <form onSubmit={newSetlist}>
         <input value={newSetlist} onChange={(e) => setNewSetlist(e.target.value)} />
         <button type="submit">ADD Setlist</button>
       </form>
 
-      {setlist.length === 0 ? <p>No Setlists Yet!</p> :
+      {setlists.length === 0 ? <p>No Setlists Yet!</p> :
         <ul>
           {setlists.map((setlist, index) => (
             <li key={index}>
