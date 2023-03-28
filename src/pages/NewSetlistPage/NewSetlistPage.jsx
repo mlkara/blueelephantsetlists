@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as setlistApi from "../../utilities/setlistApi-api"
 
 export default function NewSetlistPage({ user, setUser }) {
@@ -12,18 +12,9 @@ export default function NewSetlistPage({ user, setUser }) {
   async function searchForArtists(evt) {
     evt.preventDefault();
     const artistResults = await setlistApi.findArtists(artistFormData)
-
+    setArtists(artistResults) 
+    console.log(artistResults)
   }
-
-
-  // useEffect(function() {
-  //   async function getArtist() {
-  //     const setlists = await artistsAPI.getAll();
-  //     categoriesRef.current = [...new Set(artists.map(item => artists.name))];
-  //     setVenues(items);
-  //     setActiveCat(categoriesRef.current[0]);
-  //   }
-  //   getArtists();
   
   const addSetlist = (event) => {
     event.preventDefault();
@@ -34,8 +25,6 @@ export default function NewSetlistPage({ user, setUser }) {
     setSetlists([...setlists, newSetlistObject]);
     setNewSetlist('');
   };
-
-  
 
   return (
   <div>
@@ -50,20 +39,3 @@ export default function NewSetlistPage({ user, setUser }) {
 }
 
 
-//create input to gather search term'
-// {setlists.length === 0 ? <p>No Setlists Yet!</p> :
-//   <ul>
-//     {setlists.map((setlist, index) => (
-//       <li key={index}>
-//         {setlist.content}
-//         <br />
-//         <small>{setlist.date}</small>
-//       </li>
-//     ))}
-//   </ul>
-// }
-
-//how to display-need input-display the input that comes back on this same page for all the input that come
-// back on the api
-
-//mini form handle searching for the artists - go through the routing 

@@ -1,13 +1,8 @@
-// export default function SetlistDetailPage() {
-//   const [isFavorite, setFavorite] = useState(false);
-
-//   const onHandleClick = (event, item)
-//   setFavorite(isFavorite?false:true);
+export default function SetlistDetailPage() {
+  // const [isFavorite, setFavorite] = useState(false);
     
-//   return (
+  return (
       
-//       <button> data-name={setlist.name}
-     
-//       error: ''{isFavorite? 'Unlike':'Like'}</button>
-//     );
-//   }
+     <h1>SetlistDetailPage</h1>
+    );
+  }
