@@ -1,7 +1,6 @@
-const Userexperience = require('../models/userexperience');
+const Userexperience = require('../../models/userexperience');
 
 module.exports = {
-    index, 
     show,
     new: newSetlist, 
     create
