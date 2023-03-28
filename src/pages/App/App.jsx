@@ -61,7 +61,7 @@ export default function App() {
             <Routes>
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
-              <Route path="/setlists/new" element={<NewSetlistPage />} />
+              <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} />} />
               <Route path="/" element={<SetlistListPage />} />
               <Route path="/setlists" element={<SetlistDetailPage />} />
               <Route path="/" element={<AllArtistsPage />} />
