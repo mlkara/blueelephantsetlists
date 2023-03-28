@@ -37,5 +37,5 @@ export default function NewSetlistPage({ user, setUser }) {
     </div>
   )
 }
-
+src/components/NavBar/NavBar.jsx
 
