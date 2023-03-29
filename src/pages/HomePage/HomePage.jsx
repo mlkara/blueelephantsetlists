@@ -6,9 +6,10 @@ const homePhoto = new URL("https://i.imgur.com/F8ZlkUf.png")
 export default function HomePage() {
   
     return (
-  <div>
+  <div className='Img'>
       <h1></h1>
      <img src={homePhoto} />
   </div>
     );
   }
+

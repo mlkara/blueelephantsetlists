@@ -1,5 +1,5 @@
-.nav {
-    max-width: 4200px;
+.Nav {
+    width: 100%;
     margin: 0 auto;
     background-color: #223554; 
     display: flex;
@@ -9,6 +9,7 @@
     color: white;
     position: fixed;
     top: 0;
+  
 }
 
 
@@ -28,7 +29,7 @@ nav>img {
   
   nav>a:hover:not(.active) {
     color: #fd8e67;
-    background-color: yellow;
+    background-color: #697866;
   }
   
   nav>a.active {

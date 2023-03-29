@@ -13,7 +13,7 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <nav className="nav">
+    <nav className="Nav">
       <img src={logoPhoto} />
       <Link to="/">Home</Link>
       &nbsp;  &nbsp;
