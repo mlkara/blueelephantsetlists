@@ -1,7 +1,7 @@
 // import { useState } from 'react';
 // import * as setlistApi from "../../utilities/setlistApi-api"
 
-// export default function AllVenuesPage() {
+export default function AllVenuesPage() {
 //   const [venues, setVenues] = useState([]);
 //   const [venueFormData, setVenueFormData] = useState('');
 
@@ -13,10 +13,10 @@
 //     console.log(venueResults)
 //   }
 
-//     return (
+    return (
     
 //       <div>
-//       <h1>All Venues</h1>
+      <h1>All Venues</h1>
 
 //     <form onSubmit={searchForVenues}>
 //       <input type="text" value={venueFormData} onChange={(evt)=> setVenueFormData(evt.target.value)} />
@@ -25,5 +25,5 @@
 //     </div>
 
    
-//     );
-//   }
+    );
+  }

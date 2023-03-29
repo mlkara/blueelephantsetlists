@@ -1,5 +1,7 @@
-// export default function SetlistListPage() {
-//   const [setlists, setSetlists] = useState([]);
+import { useState } from 'react'
+
+export default function SetlistListPage() {
+  const [setlists, setSetlists] = useState([]);
 
 //   useEffect(function() {
 //     async function getSetlists() {
@@ -12,7 +14,7 @@
 //     const setlist = await setlistAPI.add(postData);
 //     setSetlists([...setlists, setlist]);
 //   }
-//     return (
-//       <h1>SetlistListPage</h1>
-//     );
-//   }
+    return (
+      <h1>SetlistListPage</h1>
+    );
+  }

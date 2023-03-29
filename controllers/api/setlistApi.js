@@ -16,7 +16,7 @@ async function findArtists(req, res) {
      };
     const results = await fetch(`${BASE_URL}${ARTIST_URL}`, options)
     const artistsData = await results.json()
-    res.status(200).json(artistsData)
+    res.status(200).json(artistsData.artist)
   } catch (err) {
     res.status(400).json(err);
   }
