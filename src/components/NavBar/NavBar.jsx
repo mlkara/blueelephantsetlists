@@ -3,6 +3,9 @@ import * as userService from '../../utilities/users-service';
 import './NavBar.css';
 
 
+const logoPhoto = new URL("https://i.imgur.com/srwxbTg.png")
+
+
 export default function NavBar({ user, setUser }) {
   function handleLogOut() {
     userService.logOut();
@@ -11,7 +14,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav className="nav">
-       {/* <logo /> */}
+      <img src={logoPhoto} />
       <Link to="/">Home</Link>
       &nbsp;  &nbsp;
       {/* <Link to="/setlists">All Setlists</Link>

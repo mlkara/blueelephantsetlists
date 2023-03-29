@@ -6,7 +6,6 @@ export default function NewSetlistPage({ user, setUser }) {
   const [artists, setArtists] = useState([]);
   const [artistFormData, setArtistFormData] = useState('');
   const [selectedArtist, setSelectedArtist] = useState(null)
-  const [selectedMbid, setSelectedMbid] = useState(null)
      
   async function searchForArtists(evt) {
     evt.preventDefault();
@@ -15,19 +14,17 @@ export default function NewSetlistPage({ user, setUser }) {
     console.log(artistResults)
   }
 
-  async function artistSelected(evt) {
-    evt.preventDefault();
-    const artistSelected = await setlistApi.findArtists(artistFormData)
-    setSelectedMbid(artistSelected) 
-    console.log(artistSelected)
+  async function getArtistSetlists() {
+    const setlistResults = await setlistApi.getArtistSetlists(selectedArtist.mbid)
+    console.log(setlistResults)
   }
 
   function selectArtist(mbid) {
     const selected = artists.find(a => a.mbid === mbid)
     setSelectedArtist(selected)
+    getArtistSetlists()
   }
   
-console.log("artists", selectedArtist)
   return (
   <div>
       <h1>Add Setlist</h1>
@@ -46,10 +43,10 @@ console.log("artists", selectedArtist)
   }
   <div>{selectedArtist?.name}</div>
     </div>
-  )
-
   
 
+
+  )
  
 }
 
