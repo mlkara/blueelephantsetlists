@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as setlistApi from "../../utilities/setlistApi-api"
+import { useNavigate } from 'react-router-dom'
 
 export default function NewSetlistPage({ user, setUser }) {
   const [setlists, setSetlists] = useState('');
@@ -8,6 +9,8 @@ export default function NewSetlistPage({ user, setUser }) {
   const [venues, setVenues] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const [artistFormData, setArtistFormData] = useState('');
+  const navigate = useNavigate();
+
 
   async function searchForArtists(evt) {
     evt.preventDefault();
@@ -29,13 +32,20 @@ export default function NewSetlistPage({ user, setUser }) {
   return (
   <div>
       <h1>Add Setlist</h1>
+
     <form onSubmit={searchForArtists}>
-      <input type="text" value={artistFormData} onChange={(evt)=> setArtistFormData(evt.target.value)}/>
+      <input type="text" value={artistFormData} onChange={(evt)=> setArtistFormData(evt.target.value)} />
       <button type="submit">Search</button>
     </form>
-
     </div>
   )
+
+  async function handleArtistSearchResults() {
+    await setlistApi.artistSearchResults();
+    navigate('/ArtistSearchResults');
+  }
+
+  
 }
-src/components/NavBar/NavBar.jsx
+
 

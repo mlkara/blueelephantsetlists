@@ -1,4 +1,11 @@
-.homepage {
-    background-image: url("https://imgur.com/F8ZlkUf");
-    background-color: #223554;
+
+.indexWrapper {
+ /* background-image: url('/images/test.jpg'); */
+  /* background-size: cover;
+  height: 87.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px; */
 }

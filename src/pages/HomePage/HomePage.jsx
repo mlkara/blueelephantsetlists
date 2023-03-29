@@ -1,5 +1,14 @@
-export default function NewSetlistPage() {
+import NavBar from '../../components/NavBar/NavBar';
+import './HomePage.css';
+
+
+
+export default function HomePage() {
+  
     return (
-      <h1>Blue Elephant Setlists</h1>
+  <div>
+
+      <h1>HomePage</h1>
+  </div>
     );
   }

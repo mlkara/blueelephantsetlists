@@ -16,17 +16,22 @@ import AllVenuesPage from '../AllVenuesPage/AllVenuesPage';
 import SetlistListPage from '../SetlistListPage/SetlistListPage';
 import SetlistDetailPage from '../SetlistDetailPage/SetlistDetailPage';
 import ArtistDetailPage from '../ArtistDetailPage/ArtistDetailPage';
+import UserExperiencePage from '../UserExperiencePage/UserExperiencePage';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
 
 
+
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const { collapseSidebar } = useProSidebar();
+
   // const [title, setTitle] = useState('');
   // const [photos, setPhotos] = useState([]);
   // const fileInputRef = useRef();
   
 
+  
   useEffect(function() {
     // photosAPI.getAll().then(photos => setPhotos(photos));
   }, []);
@@ -53,6 +58,11 @@ export default function App() {
     <section>
       {photos.map(p => <PhotoCard photo={p} key={p._id} />)}
     </section> */}
+
+    
+
+
+export default App;
       
       { user ?
           <>
@@ -70,6 +80,7 @@ export default function App() {
               <Route path="/tours" element={<AllToursPage />} />
               <Route path="/venues" element={<AllVenuesPage />} />
               <Route path="/posters" element={<AllTourPostersPage />} />
+              <Route path="/myconcerts" element={<UserExperiencePage />} />
             </Routes>
           </>
           :
