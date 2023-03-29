@@ -8,8 +8,18 @@ export default function AuthPage({ setUser }) {
   return (
     <main>
       <Logo />
-      <h1>Welcome to Blue Elephant Setlists</h1>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h1></h1>
       <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
+      
       { showSignUp ?
           <SignUpForm setUser={setUser} />
           :
