@@ -8,7 +8,7 @@ export default function HomePage() {
     return (
   <div className='Img'>
       <h1></h1>
-     <img src={homePhoto} />
+     <img style={{ width: '100%', height: '100%' }} src={homePhoto} />
   </div>
     );
   }
