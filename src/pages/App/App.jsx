@@ -24,14 +24,13 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-  const { collapseSidebar } = useProSidebar();
 
   // const [title, setTitle] = useState('');
   // const [photos, setPhotos] = useState([]);
   // const fileInputRef = useRef();
   
 
-  
+
   useEffect(function() {
     // photosAPI.getAll().then(photos => setPhotos(photos));
   }, []);
@@ -59,11 +58,6 @@ export default function App() {
       {photos.map(p => <PhotoCard photo={p} key={p._id} />)}
     </section> */}
 
-    
-
-
-export default App;
-      
       { user ?
           <>
             <NavBar user={user} setUser={setUser} />

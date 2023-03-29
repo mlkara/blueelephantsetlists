@@ -40,9 +40,9 @@ export default function NewSetlistPage({ user, setUser }) {
     </div>
   )
 
-  async function handleArtistSearchResults() {
-    await setlistApi.artistSearchResults();
-    navigate('/ArtistSearchResults');
+  async function handleFindArtists() {
+    await setlistApi.findArtists();
+    navigate('/FindArtists');
   }
 
   
