@@ -7,9 +7,8 @@ export default function AuthPage({ setUser }) {
   const [showSignUp, setShowSignUp] = useState(false);
   return (
     <main>
-      <Logo />
-      <br />
-      <br />
+    
+      <Logo style={{ justifyContent: 'center' }} />
       <br />
       <br />
       <br />

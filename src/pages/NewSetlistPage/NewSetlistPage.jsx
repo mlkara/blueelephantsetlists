@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as setlistApi from "../../utilities/setlistApi-api"
 import { useNavigate } from 'react-router-dom'
+import './NewSetlistPage.css';
 
 export default function NewSetlistPage({ user, setUser }) {
   const [artists, setArtists] = useState([]);
