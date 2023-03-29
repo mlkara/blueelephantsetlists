@@ -24,6 +24,9 @@ import NavBar from '../../components/NavBar/NavBar';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
 
   // const [title, setTitle] = useState('');
   // const [photos, setPhotos] = useState([]);
@@ -67,8 +70,8 @@ export default function App() {
               <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} />} />
               <Route path="/" element={<SetlistListPage />} />
               <Route path="/setlists" element={<SetlistDetailPage />} />
-              <Route path="/" element={<AllArtistsPage />} />
-              <Route path="/artists" element={<ArtistDetailPage />} />
+              <Route path="/artists" element={<AllArtistsPage />} />
+              {/* <Route path="/artists" element={<ArtistDetailPage />} /> */}
               <Route path="/concerts" element={<AllConcertsPage />} />
               <Route path="/festivals" element={<AllFestivalsPage />} />
               <Route path="/tours" element={<AllToursPage />} />
