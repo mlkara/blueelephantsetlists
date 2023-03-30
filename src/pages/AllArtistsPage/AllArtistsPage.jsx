@@ -29,13 +29,13 @@ export default function NewSetlistPage({ user, setUser }) {
   
   return (
   <div>
-      <h1>Artists</h1>
+      <h1 style={{ color: "white"}}>Artists</h1>
    
  
 
-    <form onSubmit={searchForArtists}>
-      <input className="SearchBar" type="text" value={artistFormData} onChange={(evt)=> setArtistFormData(evt.target.value)} />
-      <button type="submit">Search</button>
+    <form className="search" onSubmit={searchForArtists}>
+      <input placeholder="Search Artists" style={{ width: "400px"}}className="SearchBar" type="text" value={artistFormData} onChange={(evt)=> setArtistFormData(evt.target.value)} />
+      <button style={{ width: "400px"}}type="submit">Search</button>
     </form>
     {artists.map(function(a){
       return (

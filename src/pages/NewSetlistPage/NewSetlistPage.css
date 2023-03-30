@@ -1,3 +1,21 @@
-/* .SearchBar {
-    width: 100%;
-} */
+.search {
+    text-align: center;
+    display: inline-block;
+}
+
+.button {
+    background-color: #697866;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+
+  }
+
+  .button4 {border-radius: 12px;}
+
+

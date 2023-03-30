@@ -19,7 +19,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp;  &nbsp;
       {/* <Link to="/setlists">All Setlists</Link>
       &nbsp; | &nbsp; */}
-      <Link to="/userExperiences">My Setlists</Link>
+      <Link to="/userExperiences">My Experiences</Link>
       &nbsp;  &nbsp;
       <Link to="/artists">All Artists</Link>
       &nbsp;  &nbsp;

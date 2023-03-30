@@ -19,8 +19,8 @@ export default function AllVenuesPage() {
       <h1>All Venues</h1>
 
 //     <form onSubmit={searchForVenues}>
-//       <input type="text" value={venueFormData} onChange={(evt)=> setVenueFormData(evt.target.value)} />
-//       <button type="submit">Search</button>
+//       <input style={{ width: "500px"}}type="text" value={venueFormData} onChange={(evt)=> setVenueFormData(evt.target.value)} />
+//       <button style={{ width: "500px"}}type="submit">Search</button>
 //     </form>
 //     </div>
 

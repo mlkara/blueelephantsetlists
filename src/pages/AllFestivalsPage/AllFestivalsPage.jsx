@@ -23,8 +23,8 @@ export default function AllArtistsPage() {
     </div> 
 
     {/* <form onSubmit={searchForFestivals}>
-      <input type="text" value={festivalFormData} onChange={(evt)=> setFestivalFormData(evt.target.value)} />
-      <button type="submit">Search</button>
+      <input style={{ width: "500px"}}type="text" value={festivalFormData} onChange={(evt)=> setFestivalFormData(evt.target.value)} />
+      <button style={{ width: "500px"}}type="submit">Search</button>
     </form> */}
     </div>
    

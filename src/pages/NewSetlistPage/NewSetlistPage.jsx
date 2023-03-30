@@ -66,11 +66,11 @@ export default function NewSetlistPage({ user, setUser }) {
 
   return (
     <div>
-      <h1>Add Setlist</h1>
+      <h1 style={{ color: "white"}}>Add an Experience</h1>
 
-      <form onSubmit={searchForArtists}>
-        <input type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
-        <button type="submit">Search</button>
+      <form className="search" onSubmit={searchForArtists}>
+        <input placeholder="Search Artists" style={{ width: "500px"}}type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
+        <button style={{ width: "500px"}}type="submit">Search</button>
       </form>
 
       {artists.map(function (a) {return (<div key={a.mbid} onClick={() => selectArtist(a.mbid)}>{a.name}</div>)})}
@@ -88,10 +88,11 @@ export default function NewSetlistPage({ user, setUser }) {
       {
         setlistResults.hasOwnProperty("code") 
         ? 
-        <h3>No Results. Please Choose Another Artist.</h3>
+        <h3 style={{ color: "white"}}>No Results <br /> Please, Choose Another Artist.</h3>
         :
         <div>
-          <h3>Please select a venue.</h3>
+          {/* <h3 style={{ color: "white", paddingRight: "25px"}}>SELECT VENUE</h3> */}
+          <form class="button button4">SELECT VENUE</form>
     
           {setlistResults.hasOwnProperty("setlist") 
             ? 
@@ -102,8 +103,8 @@ export default function NewSetlistPage({ user, setUser }) {
           }
         </div>
       }
-      <form onSubmit={submitExperience}>
-        <button type="submit">Submit Experience</button>
+      <form className="search" onSubmit={submitExperience}>
+      <button style={{ width: "500px"}}type="submit">Submit Experience</button>
       </form>
     </div>
 
