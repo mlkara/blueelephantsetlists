@@ -1,3 +1,30 @@
 .search {
     padding-left: 500px;
 }
+
+:hover {
+    color: #fd8e67; 
+  }
+
+  cursor>a {
+    margin: 20px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  cursor>a:hover:not(.active) {
+    color: #fd8e67;
+    background-color: #697866;
+  }
+  
+  cursor>a.active {
+    color: white;
+    cursor: default;
+  }
+
+  .artist {
+      cursor: grab;
+  }
+

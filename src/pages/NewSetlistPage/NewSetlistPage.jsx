@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import * as setlistApi from "../../utilities/setlistApi-api"
-import { useNavigate } from 'react-router-dom'
 import './NewSetlistPage.css';
 
 export default function NewSetlistPage({ user, setUser }) {
@@ -67,18 +66,18 @@ export default function NewSetlistPage({ user, setUser }) {
   return (
     <div>
       <h1 style={{ color: "white"}}>Add an Experience</h1>
-
       <form className="search" onSubmit={searchForArtists}>
         <input placeholder="Search Artists" style={{ width: "500px"}}type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
         <button style={{ width: "500px"}}type="submit">Search</button>
       </form>
-
+      <div className="artist"style={{ color: "white"}}>
       {artists.map(function (a) {return (<div key={a.mbid} onClick={() => selectArtist(a.mbid)}>{a.name}</div>)})}
+      </div>
 
       <br />
       <br />
       <br />
-      <div>{selectedArtist?.name}</div>
+      <div style={{ color: "#fd8e67"}}>{selectedArtist?.name}</div>
       <br />
       <br />
       <br />
@@ -88,12 +87,12 @@ export default function NewSetlistPage({ user, setUser }) {
       {
         setlistResults.hasOwnProperty("code") 
         ? 
-        <h3 style={{ color: "white"}}>No Results <br /> Please, Choose Another Artist.</h3>
+        <h3 style={{ color: "red"}}>No Results!!<br /> Please Choose Another Artist</h3>
         :
         <div>
           {/* <h3 style={{ color: "white", paddingRight: "25px"}}>SELECT VENUE</h3> */}
-          <form class="button button4">SELECT VENUE</form>
-    
+          <form class="button button4">Select Venue</form>
+          <div className="artist" style={{ color: "white"}}>
           {setlistResults.hasOwnProperty("setlist") 
             ? 
             setlistResults.setlist.map(function(s){
@@ -101,7 +100,11 @@ export default function NewSetlistPage({ user, setUser }) {
             :  
             "" 
           }
+
+          
+          </div>
         </div>
+        
       }
       <form className="search" onSubmit={submitExperience}>
       <button style={{ width: "500px"}}type="submit">Submit Experience</button>

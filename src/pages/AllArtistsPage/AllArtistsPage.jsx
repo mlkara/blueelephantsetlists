@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import * as setlistApi from "../../utilities/setlistApi-api"
-import { useNavigate } from 'react-router-dom'
 
 export default function NewSetlistPage({ user, setUser }) {
   const [artists, setArtists] = useState([]);
@@ -8,11 +7,11 @@ export default function NewSetlistPage({ user, setUser }) {
   const [selectedArtist, setSelectedArtist] = useState(null)
   const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
 
-     
+
   async function searchForArtists(evt) {
     evt.preventDefault();
     const artistResults = await setlistApi.findArtists(artistFormData)
-    setArtists(artistResults) 
+    setArtists(artistResults)
     console.log(artistResults)
   }
 
@@ -26,32 +25,41 @@ export default function NewSetlistPage({ user, setUser }) {
     setSelectedArtist(selected)
     getArtistSetlists()
   }
-  
-  return (
-  <div>
-      <h1 style={{ color: "white"}}>Artists</h1>
-   
- 
 
-    <form className="search" onSubmit={searchForArtists}>
-      <input placeholder="Search Artists" style={{ width: "400px"}}className="SearchBar" type="text" value={artistFormData} onChange={(evt)=> setArtistFormData(evt.target.value)} />
-      <button style={{ width: "400px"}}type="submit">Search</button>
-    </form>
-    {artists.map(function(a){
-      return (
-      <div key={a.mbid} 
-      onClick={() => selectArtist(a.mbid)}>{a.name}
+  return (
+    <div>
+      <h1 style={{ color: "white" }}>Artists</h1>
+
+
+
+      <form className="search" onSubmit={searchForArtists}>
+        <input placeholder="Search Artists" style={{ width: "400px" }} className="SearchBar" type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
+        <button style={{ width: "400px" }} type="submit">Search</button>
+      </form>
+      <div className="artist" style={{ color: "white"}}>
+        {artists.map(function (a) {
+          return (
+            <div key={a.mbid}
+              onClick={() => selectArtist(a.mbid)}>{a.name}
+            </div>
+
+          )
+        })
+        }
       </div>
-      )
-    })
-  }
-  <div>{selectedArtist?.name}</div>
+
+      <br />
+      <br />
+      <br />
+
+
+      <div style={{ color: "#fd8e67" }}>{selectedArtist?.name}</div>
     </div>
-  
+
 
 
   )
- 
+
 }
 
 
