@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 
 const setlistSchema = new Schema({
     set: [],
+    venue: {type: Schema.Types.ObjectId, ref: 'Venue'}, 
+    eventDate: Date,
 }, {
   timestamps: true,
 });

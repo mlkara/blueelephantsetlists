@@ -1,35 +1,39 @@
-const Userexperience = require('../../models/userexperience');
+const UserExperience = require('../../models/userExperience');
 
 module.exports = {
-    show,
-    new: newSetlist, 
-    create
+  create,
+  delete: deleteUserExperience,
+  update
 }
 
-async function newUserexperience(req, res) {
-    const artists = await Artist.find({});
-        res.render('artists/index', { artists });
+function deleteUserExperience(req, res, next) {
+  // UserExperience.findOne({
+  //   'userExperiences._id': req.params.id,
+  //   'userExperiences.user': req.user._id
+  // }).then(function (venue) {
+  //   if (!venue) return res.redirect('/userExperiences');
+  //   venue.userExperiences.remove(req.params.id);
+  //   venue.same().then(function () {
+  //     res.redirect(`/venues/${venue.id}`);
+  //   }).catch(function (err) {
+  //     return next(err);
+  //   });
+  // });
 }
 
-function show(req, res) {
-  Userexperience.findById(req.params.id, function (err, userexperience) {
-    Artist.find({ Userexperience: Userexperience._id }, function (err, userexperiences) {
-      res.render("userexperiences/show", { userexperience, title: "Your Details", userexperience });
-    });
-  });
-};
-
-function newSetlist(req, res) {
-  res.render("setlists/new", { title: "Add Setlist" });
-}
 
 function create(req, res) {
-    for (let key in req.body) {
-        if (req.body[key] === "") delete req.body[key];
-      }
-      const userexperience = new Userexperience(req.body);
-      userexperience.save(function (err) {
-        if (err) return res.redirect("/userexperiences/new");
-        res.redirect(`/userexperiences/${userexperience._id}`);
-      });
-    };
+ 
+};
+
+function update(req, res) {
+  // Venue.findOne({ 'userExperiences._id': req.params.id }, function (err, userExperience) {
+  //   const userExperienceSubdoc = venue.userExpereience.id(req.params.id);
+  //   if (!userExperienceSubdoc.user.equals(req.user._id)) return res.redirect(`/userExperiences/${userExperience._id}`);
+  //   userExperienceSubdoc.content = req.body.content;
+  //   venue.save(function (err) {
+  //     res.redirect(`/userExperiences/${userExperience._id}`);
+  //   });
+  // });
+};
+

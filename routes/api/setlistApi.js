@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const userexperienceCtrl = require('../../controllers/api/userexperience');
+const userExperienceCtrl = require('../../controllers/api/userExperience');
 const setlistApiCtrl = require('../../controllers/api/setlistApi');
 
 router.get("/artists", setlistApiCtrl.findArtists)

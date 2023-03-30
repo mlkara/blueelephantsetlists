@@ -33,7 +33,7 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp; */}
       <Link to="/venues">All Venues</Link>
       &nbsp;  &nbsp;
-      <Link to="/setlists/new">New Setlist</Link>
+      <Link to="/setlists/new">Add Setlist</Link>
       &nbsp;  &nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
   );

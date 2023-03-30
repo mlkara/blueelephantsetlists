@@ -6,10 +6,6 @@ const artistSchema = new Schema({
       type: String,
       required: true
     },
-    tmid: {
-      type: Number,
-      required: true
-    },
     name: {
       type: String,
       required: true

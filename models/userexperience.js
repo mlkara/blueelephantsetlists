@@ -8,34 +8,14 @@ const photoSchema = new Schema({
   timestamps: true,
 });
 
-const userexperienceSchema = new Schema({
-    mbid: {
-      type: String,
-      required: true
-    },
-    tmid: {
-      type: Number,
-      required: true
-    },
-    name: {
-      type: String,
-      required: true
-    },
-    sortName: {
-      type: String,
-      required: true
-    },
-    disambiguation: {
-      type: String,
-      required: true
-    },
-    url: {
-      type: String,
-      required: true
-    },
-    images:[photoSchema]
+const userExperienceSchema = new Schema({
+  artist: {type: Schema.Types.ObjectId, ref: 'Artist'}, 
+  venue: {type: Schema.Types.ObjectId, ref: 'Venue'}, 
+  setlist: {type: Schema.Types.ObjectId, ref: 'Setlist'}, 
+  eventDate: Date,
+  images:[photoSchema]
 }, {
   timestamps: true,
 });
 
-module.exports = mongoose.model('Userexperience', userexperienceSchema);
+module.exports = mongoose.model('UserExperience', userExperienceSchema);
