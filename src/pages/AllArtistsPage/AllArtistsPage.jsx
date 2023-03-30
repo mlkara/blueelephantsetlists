@@ -6,6 +6,8 @@ export default function NewSetlistPage({ user, setUser }) {
   const [artists, setArtists] = useState([]);
   const [artistFormData, setArtistFormData] = useState('');
   const [selectedArtist, setSelectedArtist] = useState(null)
+  const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
+
      
   async function searchForArtists(evt) {
     evt.preventDefault();
@@ -28,6 +30,8 @@ export default function NewSetlistPage({ user, setUser }) {
   return (
   <div>
       <h1>Artists</h1>
+   
+ 
 
     <form onSubmit={searchForArtists}>
       <input className="SearchBar" type="text" value={artistFormData} onChange={(evt)=> setArtistFormData(evt.target.value)} />
