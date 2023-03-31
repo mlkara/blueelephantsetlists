@@ -23,4 +23,4 @@ const artistSchema = new Schema({
   timestamps: true,
 });
 
-module.exports = mongoose.model('Artist', artistSchema, findArtists);
+module.exports = mongoose.model('Artist', artistSchema);

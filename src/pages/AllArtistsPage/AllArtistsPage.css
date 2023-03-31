@@ -1,3 +1,8 @@
+.mainImg {
+  background-image: url("https://i.imgur.com/iP2LZ3P.jpg");
+  background-color: yellow;
+}
+
 .search {
     margin: 0 auto;
     display: inline-block;

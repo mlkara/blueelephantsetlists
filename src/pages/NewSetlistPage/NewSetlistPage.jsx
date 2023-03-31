@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as setlistApi from "../../utilities/setlistApi-api"
+import * as artistsApi from "../../utilities/artists-api"
+import * as venuesApi from "../../utilities/venues-api"
 import './NewSetlistPage.css';
 
 export default function NewSetlistPage({ user, setUser }) {
@@ -11,9 +13,8 @@ export default function NewSetlistPage({ user, setUser }) {
   const [eventDate, setEventDate] = useState(null)
   const [selectedSetlist, setSelectedSetlist] = useState([])
   const [selectedTour, setSelectedTour] = useState('')
-
-  // const NewSetlistPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
-
+  //const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
+  
 
   async function searchForArtists(evt) {
     evt.preventDefault();
@@ -35,8 +36,12 @@ export default function NewSetlistPage({ user, setUser }) {
       setlist: selectedSetlist,
       tour: selectedTour,
     }
-    console.log(data)
+    const newArtist = await artistsApi.addArtistToDb(selectedArtist)
+    // const newVenue = await venuesApi.addVenueToDb(selectedVenue)
+    
   }
+
+
 
   function selectArtist(mbid) {
     const selected = artists.find(a => a.mbid === mbid)
@@ -45,7 +50,6 @@ export default function NewSetlistPage({ user, setUser }) {
   }
 
   function selectVenue(v, date) {
-    console.log(v)
     const venueInfo = {
       setlistApiVenueId: v.venue.id,
       cityName: v.venue.city.name,
@@ -62,10 +66,12 @@ export default function NewSetlistPage({ user, setUser }) {
     setEventDate(new Date(dateStr))
     setSelectedVenue(venueInfo)
     setSelectedSetlist(v.sets.set[0].song)
-    setSelectedTour(v.tour.name)
+    setSelectedTour(v.tour?.name)
+    console.log(venueInfo)
   }
 
   return (
+    // <div style={{  backgroundImage: `url(${backgroundPhoto})`}}>
     <div>
       <h1 style={{ color: "white" }}>ADD SETLIST</h1>
       <form className="search" onSubmit={searchForArtists}>
@@ -96,8 +102,8 @@ export default function NewSetlistPage({ user, setUser }) {
           :
           <div>
             {/* <h3 style={{ color: "white", paddingRight: "25px"}}>SELECT VENUE</h3> */}
-            <form class="button button4">SELECT VENUE</form>
-            <div className="artist" style={{ color: "white" }}>
+            <form className="button button4">SELECT VENUE</form>
+            <div className="artist" style={{ color: "white", overflowY: "scroll" }}>
               {setlistResults.hasOwnProperty("setlist")
                 ?
                 setlistResults.setlist.map(function (s) {
@@ -113,7 +119,7 @@ export default function NewSetlistPage({ user, setUser }) {
       <br />
       <br />
       <br />
-      <div style={{ color: "#fd8e67" }}>{selectedVenue?.name}</div>
+      <div style={{ color: "#fd8e67" }}>{selectedVenue?.venueName}</div>
       <br />
       <br />
       <br />  

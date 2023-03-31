@@ -14,4 +14,3 @@ export default function HomePage() {
     );
   }
 
-//https://i.imgur.com/iP2LZ3P.jpg

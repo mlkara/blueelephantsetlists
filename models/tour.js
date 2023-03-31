@@ -9,7 +9,6 @@ const photoSchema = new Schema({
 });
 
 const tourSchema = new Schema({
-
     artist: {type: Schema.Types.ObjectId, ref: 'Artist'},
     venues: [{type: Schema.Types.ObjectId, ref: 'Venue'}],
     name: {

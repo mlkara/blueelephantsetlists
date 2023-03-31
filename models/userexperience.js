@@ -9,6 +9,7 @@ const photoSchema = new Schema({
 });
 
 const userExperienceSchema = new Schema({
+  user: {type: Schema.Types.ObjectId, ref: 'User'}, 
   artist: {type: Schema.Types.ObjectId, ref: 'Artist'}, 
   venue: {type: Schema.Types.ObjectId, ref: 'Venue'}, 
   setlist: {type: Schema.Types.ObjectId, ref: 'Setlist'}, 

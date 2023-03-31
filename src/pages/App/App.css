@@ -92,5 +92,5 @@ nav>a.active {
 body {
   font-family: 'Quicksand', sans-serif;
   font-weight: bold;
-
+  overflow-y: scroll;
 }

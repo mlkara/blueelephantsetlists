@@ -5,7 +5,9 @@ export default function NewSetlistPage({ user, setUser }) {
   const [artists, setArtists] = useState([]);
   const [artistFormData, setArtistFormData] = useState('');
   const [selectedArtist, setSelectedArtist] = useState(null)
-  // const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
+
+  const backgroundPhoto = new URL("https://i.imgur.com/F8ZlkUf.png")
+
 
 
   async function searchForArtists(evt) {
@@ -27,7 +29,7 @@ export default function NewSetlistPage({ user, setUser }) {
   }
 
   return (
-    <div>
+    <div className="mainImg" style={{  backgroundImage: `url(${backgroundPhoto})`}}>
       <h1 style={{ color: "white" }}>ARTISTS</h1>
 
       <form className="search" onSubmit={searchForArtists}>
