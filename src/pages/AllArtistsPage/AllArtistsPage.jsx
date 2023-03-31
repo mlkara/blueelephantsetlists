@@ -36,7 +36,7 @@ export default function NewSetlistPage({ user, setUser }) {
         <input placeholder="Search Artists" style={{ width: "400px" }} className="SearchBar" type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
         <button style={{ width: "400px" }} type="submit">Search</button>
       </form>
-      <div className="artist" style={{ color: "white"}}>
+      <div className="artist" style={{ color: "white" }}>
         {artists.map(function (a) {
           return (
             <div key={a.mbid}
@@ -48,13 +48,15 @@ export default function NewSetlistPage({ user, setUser }) {
         }
       </div>
 
-      <br />
+      <br />/F8ZlkUf.png
       <br />
       <br />
 
 
       <div style={{ color: "#fd8e67" }}>{selectedArtist?.name}</div>
     </div>
+
+
 
 
 

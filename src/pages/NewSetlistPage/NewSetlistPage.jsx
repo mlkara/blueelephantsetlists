@@ -11,7 +11,9 @@ export default function NewSetlistPage({ user, setUser }) {
   const [eventDate, setEventDate] = useState(null)
   const [selectedSetlist, setSelectedSetlist] = useState([])
   const [selectedTour, setSelectedTour] = useState('')
- 
+
+  // const NewSetlistPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
+
 
   async function searchForArtists(evt) {
     evt.preventDefault();
@@ -28,7 +30,7 @@ export default function NewSetlistPage({ user, setUser }) {
     evt.preventDefault()
     const data = {
       artist: selectedArtist,
-      venue: selectedVenue, 
+      venue: selectedVenue,
       eventDate,
       setlist: selectedSetlist,
       tour: selectedTour,
@@ -50,13 +52,13 @@ export default function NewSetlistPage({ user, setUser }) {
       venueName: v.venue.name,
       stateCode: v.venue.city.stateCode,
       state: v.venue.city.state,
-      countryName: v.venue.city.country.name, 
+      countryName: v.venue.city.country.name,
       coords: {
         long: v.venue.city.coords.long,
         lat: v.venue.city.coords.lat,
       },
-    } 
-    const dateStr= `${date.slice(6)}-${date.slice(3, 5)}-${date.slice(0, 2)}`
+    }
+    const dateStr = `${date.slice(6)}-${date.slice(3, 5)}-${date.slice(0, 2)}`
     setEventDate(new Date(dateStr))
     setSelectedVenue(venueInfo)
     setSelectedSetlist(v.sets.set[0].song)
@@ -65,51 +67,57 @@ export default function NewSetlistPage({ user, setUser }) {
 
   return (
     <div>
-      <h1 style={{ color: "white"}}>Add an Experience</h1>
+      <h1 style={{ color: "white" }}>Add an Experience</h1>
       <form className="search" onSubmit={searchForArtists}>
-        <input placeholder="Search Artists" style={{ width: "500px"}}type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
-        <button style={{ width: "500px"}}type="submit">Search</button>
+        <input placeholder="Search Artists" style={{ width: "500px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
+        <button style={{ width: "500px" }} type="submit">Search</button>
       </form>
-      <div className="artist"style={{ color: "white"}}>
-      {artists.map(function (a) {return (<div key={a.mbid} onClick={() => selectArtist(a.mbid)}>{a.name}</div>)})}
+      <div className="artist" style={{ color: "white" }}>
+        {artists.map(function (a) { return (<div key={a.mbid} onClick={() => selectArtist(a.mbid)}>{a.name}</div>) })}
       </div>
 
       <br />
       <br />
       <br />
-      <div style={{ color: "#fd8e67"}}>{selectedArtist?.name}</div>
+      <div style={{ color: "#fd8e67" }}>{selectedArtist?.name}</div>
       <br />
       <br />
       <br />
+      {/* <div className='Img'>
+            <h1></h1>
+            <img style={{ width: '100%', height: '100%' }} src={NewSetlistPhoto} />
+          </div> */}
 
 
-     
       {
-        setlistResults.hasOwnProperty("code") 
-        ? 
-        <h3 style={{ color: "red"}}>No Results!!<br /> Please Choose Another Artist</h3>
-        :
-        <div>
-          {/* <h3 style={{ color: "white", paddingRight: "25px"}}>SELECT VENUE</h3> */}
-          <form class="button button4">Select Venue</form>
-          <div className="artist" style={{ color: "white"}}>
-          {setlistResults.hasOwnProperty("setlist") 
-            ? 
-            setlistResults.setlist.map(function(s){
-              return (<h5 key={s.id} onClick={()=>selectVenue(s, s.eventDate)}>{s.venue.name}, {s.venue.city.name}: {s.eventDate}</h5>)})
-            :  
-            "" 
-          }
+        setlistResults.hasOwnProperty("code")
+          ?
+          <h3 style={{ color: "red" }}>No Results!!<br /> Please Choose Another Artist</h3>
+          :
+          <div>
+            {/* <h3 style={{ color: "white", paddingRight: "25px"}}>SELECT VENUE</h3> */}
+            <form class="button button4">Select Venue</form>
+            <div className="artist" style={{ color: "white" }}>
+              {setlistResults.hasOwnProperty("setlist")
+                ?
+                setlistResults.setlist.map(function (s) {
+                  return (<h5 key={s.id} onClick={() => selectVenue(s, s.eventDate)}>{s.venue.name}, {s.venue.city.name}: {s.eventDate}</h5>)
+                })
+                :
+                ""
+              }
 
-          
+
+            </div>
           </div>
-        </div>
-        
+
       }
       <form className="search" onSubmit={submitExperience}>
-      <button style={{ width: "500px"}}type="submit">Submit Experience</button>
+        <button style={{ width: "500px" }} type="submit">Submit Experience</button>
       </form>
     </div>
+
+
 
 
 
