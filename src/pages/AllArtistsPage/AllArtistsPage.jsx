@@ -5,7 +5,7 @@ export default function NewSetlistPage({ user, setUser }) {
   const [artists, setArtists] = useState([]);
   const [artistFormData, setArtistFormData] = useState('');
   const [selectedArtist, setSelectedArtist] = useState(null)
-  const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
+  // const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
 
 
   async function searchForArtists(evt) {
@@ -28,13 +28,11 @@ export default function NewSetlistPage({ user, setUser }) {
 
   return (
     <div>
-      <h1 style={{ color: "white" }}>Artists</h1>
-
-
+      <h1 style={{ color: "white" }}>ARTISTS</h1>
 
       <form className="search" onSubmit={searchForArtists}>
-        <input placeholder="Search Artists" style={{ width: "400px" }} className="SearchBar" type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
-        <button style={{ width: "400px" }} type="submit">Search</button>
+        <input placeholder="SEARCH ARTISTS" style={{ width: "400px" }} className="SearchBar" type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
+        <button style={{ width: "400px" }} type="submit">SEARCH</button>
       </form>
       <div className="artist" style={{ color: "white" }}>
         {artists.map(function (a) {
@@ -48,7 +46,7 @@ export default function NewSetlistPage({ user, setUser }) {
         }
       </div>
 
-      <br />/F8ZlkUf.png
+      <br />
       <br />
       <br />
 

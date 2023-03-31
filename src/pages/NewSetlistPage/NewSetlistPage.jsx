@@ -67,10 +67,10 @@ export default function NewSetlistPage({ user, setUser }) {
 
   return (
     <div>
-      <h1 style={{ color: "white" }}>Add an Experience</h1>
+      <h1 style={{ color: "white" }}>ADD SETLIST</h1>
       <form className="search" onSubmit={searchForArtists}>
-        <input placeholder="Search Artists" style={{ width: "500px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
-        <button style={{ width: "500px" }} type="submit">Search</button>
+        <input placeholder="SEARCH ARTISTS" style={{ width: "500px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
+        <button style={{ width: "500px" }} type="submit">SEARCH</button>
       </form>
       <div className="artist" style={{ color: "white" }}>
         {artists.map(function (a) { return (<div key={a.mbid} onClick={() => selectArtist(a.mbid)}>{a.name}</div>) })}
@@ -88,15 +88,15 @@ export default function NewSetlistPage({ user, setUser }) {
             <img style={{ width: '100%', height: '100%' }} src={NewSetlistPhoto} />
           </div> */}
 
-
+      <div>
       {
         setlistResults.hasOwnProperty("code")
           ?
-          <h3 style={{ color: "red" }}>No Results!!<br /> Please Choose Another Artist</h3>
+          <h3 style={{ color: "red" }}>NO RESULTS!!<br /> PLEASE CHOOSE ANOTHER ARTIST</h3>
           :
           <div>
             {/* <h3 style={{ color: "white", paddingRight: "25px"}}>SELECT VENUE</h3> */}
-            <form class="button button4">Select Venue</form>
+            <form class="button button4">SELECT VENUE</form>
             <div className="artist" style={{ color: "white" }}>
               {setlistResults.hasOwnProperty("setlist")
                 ?
@@ -106,14 +106,21 @@ export default function NewSetlistPage({ user, setUser }) {
                 :
                 ""
               }
-
-
             </div>
           </div>
-
       }
+
+      <br />
+      <br />
+      <br />
+      <div style={{ color: "#fd8e67" }}>{selectedVenue?.name}</div>
+      <br />
+      <br />
+      <br />  
+      </div>
+
       <form className="search" onSubmit={submitExperience}>
-        <button style={{ width: "500px" }} type="submit">Submit Experience</button>
+        <button style={{ width: "500px" }} type="submit">SUBMIT EXPERIENCE</button>
       </form>
     </div>
 

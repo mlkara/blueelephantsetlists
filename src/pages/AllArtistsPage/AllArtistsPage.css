@@ -1,5 +1,7 @@
 .search {
-    padding-left: 500px;
+    margin: 0 auto;
+    display: inline-block;
+    position: sticky;  
 }
 
 :hover {
@@ -25,6 +27,7 @@
   }
 
   .artist {
-      cursor: grab;
+    cursor: grab;
   }
+
 

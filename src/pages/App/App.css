@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
   height: 100%;
@@ -86,4 +87,10 @@ nav>a {
 nav>a.active {
   color: white;
   cursor: default;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+
 }

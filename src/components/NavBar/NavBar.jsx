@@ -15,13 +15,13 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav className="Nav">
       <img src={logoPhoto} />
-      <Link to="/">Home</Link>
+      <Link to="/">HOME</Link>
       &nbsp;  &nbsp;
       {/* <Link to="/setlists">All Setlists</Link>
       &nbsp; | &nbsp; */}
-      <Link to="/userExperiences">My Experiences</Link>
+      <Link to="/userExperiences">MY MUSIC</Link>
       &nbsp;  &nbsp;
-      <Link to="/artists">All Artists</Link>
+      <Link to="/artists">ALL ARTISTS</Link>
       &nbsp;  &nbsp;
       {/* <Link to="/concerts">All Concerts</Link>
       &nbsp; | &nbsp; */}
@@ -31,10 +31,10 @@ export default function NavBar({ user, setUser }) {
       &nbsp; | &nbsp; */}
       {/* <Link to="/tours">All Tours</Link>
       &nbsp; | &nbsp; */}
-      <Link to="/venues">All Venues</Link>
-      &nbsp;  &nbsp;
-      <Link to="/setlists/new">Add Setlist</Link>
-      &nbsp;  &nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+      {/* <Link to="/venues">All Venues</Link>
+      &nbsp;  &nbsp; */}
+      <Link to="/setlists/new">ADD SETLIST</Link>
+      &nbsp;  &nbsp;<Link to="" onClick={handleLogOut}>LOG OUT</Link>
     </nav>
   );
 }
