@@ -11,6 +11,7 @@ import NewSetlistPage from '../NewSetlistPage/NewSetlistPage';
 import UserExperiencePage from '../UserExperiencePage/UserExperiencePage';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
+// import FooterPage from "../../components/FooterPage/FooterPage";
 
 
 
@@ -43,7 +44,10 @@ export default function App() {
   //   fileInputRef.current.value = '';
   // }
   return (
+
+    
     <main className="App flex-ctr-ctr">
+
     {/* <section className="flex-ctr-ctr">
       <input type="file" ref={fileInputRef} />
       <input value={title} onChange={(evt) => setTitle(evt.target.value)} placeholder="Photo Title" />
@@ -52,6 +56,8 @@ export default function App() {
     <section>
       {photos.map(p => <PhotoCard photo={p} key={p._id} />)}
     </section> */}
+
+    
 
       { user ?
           <>
@@ -62,6 +68,7 @@ export default function App() {
               <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} />} />
               <Route path="/myconcerts" element={<UserExperiencePage />} />
             </Routes>
+           
           </>
           :
           <AuthPage setUser={setUser} />

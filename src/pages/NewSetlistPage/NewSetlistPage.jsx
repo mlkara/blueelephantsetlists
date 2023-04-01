@@ -17,6 +17,7 @@ export default function NewSetlistPage({ user, setUser }) {
   const [eventDate, setEventDate] = useState(null)
   const [selectedSetlist, setSelectedSetlist] = useState([])
   const [selectedTour, setSelectedTour] = useState('')
+  const navigate = useNavigate();
   //const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
   
 
@@ -33,7 +34,6 @@ export default function NewSetlistPage({ user, setUser }) {
 
   async function submitExperience(evt) {
     evt.preventDefault()
-    const navigate = useNavigate();
     const tourName = selectedTour ? selectedTour : selectedArtist.name + "Tour"
     const newArtist = await artistsApi.addArtistToDb(selectedArtist)
     const newVenue = await venuesApi.addVenueToDb(selectedVenue)
@@ -135,10 +135,6 @@ export default function NewSetlistPage({ user, setUser }) {
         <button style={{ width: "500px" }} type="submit">SUBMIT EXPERIENCE</button>
       </form>
     </div>
-
-
-
-
 
   )
 }

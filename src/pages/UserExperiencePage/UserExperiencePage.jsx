@@ -1,39 +1,11 @@
-import { useState, useEffect } from "react-router-dom";
+import { useState, useEffect } from 'react';
 
 
-export default function UserExperiencePage() {
-  const [setlists, setSetlists] = useState([])
-  const [userData, setUserData] = useState({})
+export default function HomePage() {
   
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const userChoices = await userExperiencesApi(createUserExperience);
-        setSetlists(setlistData);
-        setUserData(user);
-      } catch (err) {
-        console.error(err);
-      }
-    }
+    return (
 
-    fetchData();
-  }, [id, user]);
-
-  async function handleDeleteSetlist(id) {
-    if (window.confirm('DELETE SETLIST?')) {
-      await GuideApi.deleteGuide(id);
-      const guideResponse = await GuideApi.getGuidesForUser(user._id);
-      setGuides(guideResponse);
-    }
-  }
- 
-  return (
+      <h1></h1>
     
- 
-    <h1>My Experiences</h1>
-
-  
-
-    
-  );
+    );
   }
