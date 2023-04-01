@@ -3,6 +3,7 @@ const router = express.Router();
 const userExperienceCtrl = require('../../controllers/api/userExperience');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-router.post('/', ensureLoggedIn, userExperienceCtrl.create);
+router.post('/user/:uid/artist/:aid/venue/:vid/setlist/', userExperienceCtrl.create);
+
 
 module.exports = router;

@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react';
-import * as setlistApi from "../../utilities/setlistApi-api"
+import * as externalApi from "../../utilities/setlistApi-api"
 import * as artistsApi from "../../utilities/artists-api"
-import * as venuesApi from "../../utilities/venues-api"
 import './NewSetlistPage.css';
+import * as venuesApi from "../../utilities/venues-api"
+import * as toursApi from "../../utilities/tours-api"
+import * as setlistApi from "../../utilities/setlist-api"
+import * as userExperiencesApi from "../../utilities/userExperiences-api"
+import { useNavigate } from "react-router-dom";
 
 export default function NewSetlistPage({ user, setUser }) {
   const [artists, setArtists] = useState([]);
@@ -18,35 +22,40 @@ export default function NewSetlistPage({ user, setUser }) {
 
   async function searchForArtists(evt) {
     evt.preventDefault();
-    const artistResults = await setlistApi.findArtists(artistFormData)
+    const artistResults = await externalApi.findArtists(artistFormData)
     setArtists(artistResults)
   }
 
   async function getArtistSetlists(selected) {
-    const listResults = await setlistApi.getArtistSetlists(selected.mbid)
+    const listResults = await externalApi.getArtistSetlists(selected.mbid)
     setSetlistResults(listResults)
   }
 
   async function submitExperience(evt) {
     evt.preventDefault()
-    const data = {
-      artist: selectedArtist,
-      venue: selectedVenue,
-      eventDate,
-      setlist: selectedSetlist,
-      tour: selectedTour,
-    }
+    const navigate = useNavigate();
+    const tourName = selectedTour ? selectedTour : selectedArtist.name + "Tour"
     const newArtist = await artistsApi.addArtistToDb(selectedArtist)
-    // const newVenue = await venuesApi.addVenueToDb(selectedVenue)
+    const newVenue = await venuesApi.addVenueToDb(selectedVenue)
+    const newTour = await toursApi.addTourToDb({name:selectedTour}, newArtist._id, newVenue._id)
+    // const newuserExperience = await userExperiencesApi.createUserExperience(newArtist._id, newVenue._id)
+    const setData = {
+      eventDate,
+      set: selectedSetlist,
+    }
+    const newSetlist = await setlistApi.addSetlistToDb(setData, newVenue._id)
     
+    console.log(newTour)
   }
 
-
+  function doAction() {
+    navigate("/mymusic");
+}
 
   function selectArtist(mbid) {
     const selected = artists.find(a => a.mbid === mbid)
     setSelectedArtist(selected)
-    getArtistSetlists(selected)
+    getArtistSetlists(selected)                                                     
   }
 
   function selectVenue(v, date) {
@@ -70,6 +79,7 @@ export default function NewSetlistPage({ user, setUser }) {
     console.log(venueInfo)
   }
 
+
   return (
     // <div style={{  backgroundImage: `url(${backgroundPhoto})`}}>
     <div>
@@ -89,10 +99,7 @@ export default function NewSetlistPage({ user, setUser }) {
       <br />
       <br />
       <br />
-      {/* <div className='Img'>
-            <h1></h1>
-            <img style={{ width: '100%', height: '100%' }} src={NewSetlistPhoto} />
-          </div> */}
+   
 
       <div>
       {
@@ -101,7 +108,6 @@ export default function NewSetlistPage({ user, setUser }) {
           <h3 style={{ color: "red" }}>NO RESULTS!!<br /> PLEASE CHOOSE ANOTHER ARTIST</h3>
           :
           <div>
-            {/* <h3 style={{ color: "white", paddingRight: "25px"}}>SELECT VENUE</h3> */}
             <form className="button button4">SELECT VENUE</form>
             <div className="artist" style={{ color: "white", overflowY: "scroll" }}>
               {setlistResults.hasOwnProperty("setlist")

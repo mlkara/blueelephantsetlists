@@ -25,8 +25,6 @@ export default function NavBar({ user, setUser }) {
       &nbsp;  &nbsp;
       {/* <Link to="/artists">ALL ARTISTS</Link> */}
       {/* &nbsp;  &nbsp; */}
-      {/* <Link to="/concerts">All Concerts</Link>
-      &nbsp; | &nbsp; */}
       {/* <Link to="/festivals">All Festivals</Link>
       &nbsp;  &nbsp; */}
       {/* <Link to="/tourposters">All Tour Posters</Link>

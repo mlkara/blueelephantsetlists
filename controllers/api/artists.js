@@ -16,6 +16,7 @@ async function create(req, res) {
             res.json(artist)
         }
       } catch (err) {
+        console.log(err)
         res.status(400).json(err);
       }
 }

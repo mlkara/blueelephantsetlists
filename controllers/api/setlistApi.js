@@ -34,7 +34,6 @@ async function getArtistSetlists(req, res) {
      };
     const results = await fetch(`${BASE_URL}${ENDPOINT}`, options)
     const artistsetlistsData = await results.json()
-    console.log(artistsetlistsData)
     res.status(200).json(artistsetlistsData)
   } catch (err) {
     res.status(400).json(err);

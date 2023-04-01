@@ -16,7 +16,7 @@ const artistSchema = new Schema({
     },
     disambiguation: {
       type: String,
-      required: true
+     
     },
   
 }, {

@@ -7,15 +7,7 @@ import './App.css';
 // import AddSetlistForm from '../../components/AddSetlistForm/AddSetlistForm';
 import AuthPage from '../AuthPage/AuthPage';
 import NewSetlistPage from '../NewSetlistPage/NewSetlistPage';
-import AllArtistsPage from '../AllArtistsPage/AllArtistsPage';
-import AllConcertsPage from '../AllConcertsPage/AllConcertsPage';
-import AllFestivalsPage from '../AllFestivalsPage/AllFestivalsPage';
-import AllTourPostersPage from '../AllTourPostersPage/AllTourPostersPage';
-import AllToursPage from '../AllToursPage/AllToursPage';
-import AllVenuesPage from '../AllVenuesPage/AllVenuesPage';
-import SetlistListPage from '../SetlistListPage/SetlistListPage';
-import SetlistDetailPage from '../SetlistDetailPage/SetlistDetailPage';
-import ArtistDetailPage from '../ArtistDetailPage/ArtistDetailPage';
+
 import UserExperiencePage from '../UserExperiencePage/UserExperiencePage';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -68,15 +60,6 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} />} />
-              <Route path="/" element={<SetlistListPage />} />
-              <Route path="/setlists" element={<SetlistDetailPage />} />
-              <Route path="/artists" element={<AllArtistsPage />} />
-              {/* <Route path="/artists" element={<ArtistDetailPage />} /> */}
-              <Route path="/concerts" element={<AllConcertsPage />} />
-              <Route path="/festivals" element={<AllFestivalsPage />} />
-              <Route path="/tours" element={<AllToursPage />} />
-              <Route path="/venues" element={<AllVenuesPage />} />
-              <Route path="/posters" element={<AllTourPostersPage />} />
               <Route path="/myconcerts" element={<UserExperiencePage />} />
             </Routes>
           </>

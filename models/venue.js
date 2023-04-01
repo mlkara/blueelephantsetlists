@@ -3,28 +3,28 @@ const Schema = mongoose.Schema;
 
 const venueSchema = new Schema({
     setlistApiVenueId: {
-      type: Number,
+      type: String,
       required: true
     },
     cityName: {
       type: String,
-      required: true
+      
     },
     venueName: {
       type: String,
-      required: true
+      
     },
     stateCode: {
       type: String,
-      required: true
+    
     },
     state: {
       type: String,
-      required: true
+      
     },
     countryName: {
       type: String,
-      required: true
+     
     },
     coords: {
       long: Number,

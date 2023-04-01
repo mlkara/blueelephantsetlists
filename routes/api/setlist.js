@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const toursCtrl = require('../../controllers/api/tours');
+const setlistsCtrl = require('../../controllers/api/setlists');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
-router.post('/artist/:aid/venue/:vid', toursCtrl.create)
+router.post("/venue/:vid", setlistsCtrl.create) 
+
 
 module.exports = router;
