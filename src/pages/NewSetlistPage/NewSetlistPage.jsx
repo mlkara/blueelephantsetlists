@@ -45,9 +45,9 @@ export default function NewSetlistPage({ user, setUser }) {
     }
     const newSetlist = await setlistApi.addSetlistToDb(setData, newVenue._id)
     
-    console.log(newTour)
+    console.log(newSetlist, "hello")
   }
-
+//pass the object setData
   function doAction() {
     navigate("/mymusic");
 }

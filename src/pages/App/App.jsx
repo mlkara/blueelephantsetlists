@@ -66,7 +66,7 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} />} />
-              <Route path="/myconcerts" element={<UserExperiencePage />} />
+              <Route path="/userexperiences" element={<UserExperiencePage />} />
             </Routes>
            
           </>
