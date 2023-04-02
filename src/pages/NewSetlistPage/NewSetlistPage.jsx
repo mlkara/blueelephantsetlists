@@ -18,9 +18,9 @@ export default function NewSetlistPage({ user, setUser }) {
   const [selectedSetlist, setSelectedSetlist] = useState([])
   const [selectedTour, setSelectedTour] = useState('')
   const navigate = useNavigate();
+  
   //const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
   
-
   async function searchForArtists(evt) {
     evt.preventDefault();
     const artistResults = await externalApi.findArtists(artistFormData)
@@ -38,24 +38,19 @@ export default function NewSetlistPage({ user, setUser }) {
     const newArtist = await artistsApi.addArtistToDb(selectedArtist)
     const newVenue = await venuesApi.addVenueToDb(selectedVenue)
     const newTour = await toursApi.addTourToDb({name:selectedTour}, newArtist._id, newVenue._id)
-    // const newuserExperience = await userExperiencesApi.createUserExperience(newArtist._id, newVenue._id)
+    const newuserExperience = await userExperiencesApi.createUserExperience(newArtist._id, newVenue._id, newTour._id, newSetlist)
     const setData = {
       eventDate,
       set: selectedSetlist,
     }
     const newSetlist = await setlistApi.addSetlistToDb(setData, newVenue._id)
-    
-    console.log(newSetlist, "hello")
   }
-//pass the object setData
-  function doAction() {
-    navigate("/mymusic");
-}
 
   function selectArtist(mbid) {
     const selected = artists.find(a => a.mbid === mbid)
     setSelectedArtist(selected)
-    getArtistSetlists(selected)                                                     
+    getArtistSetlists(selected)
+    navigate('/userexperiences')                                                     
   }
 
   function selectVenue(v, date) {
@@ -79,6 +74,9 @@ export default function NewSetlistPage({ user, setUser }) {
     console.log(venueInfo)
   }
 
+  function createUserExperience() {
+    
+  }
 
   return (
     // <div style={{  backgroundImage: `url(${backgroundPhoto})`}}>

@@ -1,13 +1,16 @@
-import { useState, useEffect } from 'react';
-import NewSetlistPage from '../NewSetlistPage/NewSetlistPage';
+// import { useState, useEffect } from 'react';
+// import NewSetlistPage from '../NewSetlistPage/NewSetlistPage';
 
 
-export default function HomePage() {
-  
-  
-    return (
 
+
+export default function UserExperiencePage({ artists }) {
+
+  return (
+    <>
       <h1>hello</h1>
-    
+
+      
+</>
     );
   }

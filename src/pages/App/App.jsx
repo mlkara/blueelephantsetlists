@@ -7,7 +7,7 @@ import './App.css';
 // import AddSetlistForm from '../../components/AddSetlistForm/AddSetlistForm';
 import AuthPage from '../AuthPage/AuthPage';
 import NewSetlistPage from '../NewSetlistPage/NewSetlistPage';
-
+import { useNavigate } from 'react-router-dom';
 import UserExperiencePage from '../UserExperiencePage/UserExperiencePage';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -20,6 +20,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
+  
 
   // const [title, setTitle] = useState('');
   // const [photos, setPhotos] = useState([]);
@@ -66,7 +67,8 @@ export default function App() {
               {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} />} />
-              <Route path="/userexperiences" element={<UserExperiencePage />} />
+              <Route path="/userexperiences" element={<UserExperiencePage user={user} setUser={setUser}/>} />
+              {/* <Route path="/*" element={<Navigate to="/userexperiences" />} /> */}
             </Routes>
            
           </>

@@ -23,7 +23,13 @@ function deleteUserExperience(req, res, next) {
 
 
 function create(req, res) {
- 
+//  try {
+//   const newUserExperience = await.UserExperience.create(req.body)
+//   console.log("create")
+// } catch (err) {
+//   console.log(err)
+//   res.status(400).json(err)
+// }
 };
 
 function update(req, res) {

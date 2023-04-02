@@ -25,13 +25,13 @@ const port = process.env.PORT || 3001;
 // Put API routes here, before the "catch all" route
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/users', require('./routes/api/users'));
-// app.use('/api/userExperiences', require('./routes/api/userExperiences'));
 app.use('/api/setlistApi', require('./routes/api/setlistApi'));
 app.use('/api/artists', require('./routes/api/artists'));
 app.use('/api/venues', require('./routes/api/venues'));
 app.use('/api/tours', require('./routes/api/tours'));
 app.use('/api/setlists', require('./routes/api/setlist'));
 app.use('/api/userExperiences', require('./routes/api/userExperience'));
+//  app.use('/api/reviews', require('./routes/api/reviews'));
 
 
 
