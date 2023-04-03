@@ -40,6 +40,7 @@ I love rock n' roll, so put another dime in the jukebox, baby, and we will rock 
   ![MongoDB](https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb)
   ![Express](https://img.shields.io/badge/-Express-05122A?style=flat&logo=express)
   ![React](https://img.shields.io/badge/-React-05122A?style=flat&logo=react)
+  ![Node](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
   ![AWS S3](https://img.shields.io/badge/-AWS_S3-05122A?style=flat&logo=amazons3)
   ![JWT](https://img.shields.io/badge/-JSON_Web_Tokens-05122A?style=flat&logo=jsonwebtokens)
    ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
