@@ -7,11 +7,11 @@ import './App.css';
 // import AddSetlistForm from '../../components/AddSetlistForm/AddSetlistForm';
 import AuthPage from '../AuthPage/AuthPage';
 import NewSetlistPage from '../NewSetlistPage/NewSetlistPage';
-import { useNavigate } from 'react-router-dom';
 import UserExperiencePage from '../UserExperiencePage/UserExperiencePage';
 import HomePage from '../HomePage/HomePage';
 import NavBar from '../../components/NavBar/NavBar';
-// import FooterPage from "../../components/FooterPage/FooterPage";
+import Footer from '../../components/Footer/Footer';
+
 
 
 
@@ -20,7 +20,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  
+
 
   // const [title, setTitle] = useState('');
   // const [photos, setPhotos] = useState([]);
@@ -44,10 +44,19 @@ export default function App() {
   //   setTitle('');
   //   fileInputRef.current.value = '';
   // }
-  return (
 
+  return (
+<main className="App flex-ctr-ctr">
+    <div className="page-container"></div>
+    <div className="content-wrap"></div>
     
-    <main className="App flex-ctr-ctr">
+    
+
+
+<>
+{/* <div className="page-container"></div>
+<div className="content-wrap"></div> */}
+
 
     {/* <section className="flex-ctr-ctr">
       <input type="file" ref={fileInputRef} />
@@ -68,13 +77,15 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} />} />
               <Route path="/userexperiences" element={<UserExperiencePage user={user} setUser={setUser}/>} />
-              {/* <Route path="/*" element={<Navigate to="/userexperiences" />} /> */}
             </Routes>
-           
+        
+           <Footer />
+         
           </>
           :
           <AuthPage setUser={setUser} />
       }
+    </>
     </main>
   );
 }

@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as externalApi from "../../utilities/setlistApi-api"
 import * as artistsApi from "../../utilities/artists-api"
-import './NewSetlistPage.css';
 import * as venuesApi from "../../utilities/venues-api"
 import * as toursApi from "../../utilities/tours-api"
 import * as setlistApi from "../../utilities/setlist-api"
 import * as userExperiencesApi from "../../utilities/userExperiences-api"
 import { useNavigate } from "react-router-dom";
+import './NewSetlistPage.css';
 
 export default function NewSetlistPage({ user, setUser }) {
   const [artists, setArtists] = useState([]);
@@ -18,9 +18,9 @@ export default function NewSetlistPage({ user, setUser }) {
   const [selectedSetlist, setSelectedSetlist] = useState([])
   const [selectedTour, setSelectedTour] = useState('')
   const navigate = useNavigate();
-  
+
   //const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
-  
+
   async function searchForArtists(evt) {
     evt.preventDefault();
     const artistResults = await externalApi.findArtists(artistFormData)
@@ -37,7 +37,8 @@ export default function NewSetlistPage({ user, setUser }) {
     const tourName = selectedTour ? selectedTour : selectedArtist.name + "Tour"
     const newArtist = await artistsApi.addArtistToDb(selectedArtist)
     const newVenue = await venuesApi.addVenueToDb(selectedVenue)
-    const newTour = await toursApi.addTourToDb({name:selectedTour}, newArtist._id, newVenue._id)
+    navigate('/userexperiences')
+    const newTour = await toursApi.addTourToDb({ name: selectedTour }, newArtist._id, newVenue._id)
     const newuserExperience = await userExperiencesApi.createUserExperience(newArtist._id, newVenue._id, newTour._id, newSetlist)
     const setData = {
       eventDate,
@@ -50,7 +51,7 @@ export default function NewSetlistPage({ user, setUser }) {
     const selected = artists.find(a => a.mbid === mbid)
     setSelectedArtist(selected)
     getArtistSetlists(selected)
-    navigate('/userexperiences')                                                     
+                                                    
   }
 
   function selectVenue(v, date) {
@@ -74,13 +75,17 @@ export default function NewSetlistPage({ user, setUser }) {
     console.log(venueInfo)
   }
 
-  function createUserExperience() {
-    
-  }
-
+  // function UserExperience() {
+  //   navigate('/userexperiences')
+  // }
+  
   return (
     // <div style={{  backgroundImage: `url(${backgroundPhoto})`}}>
     <div>
+
+      <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />
+
+
       <h1 style={{ color: "white" }}>ADD SETLIST</h1>
       <form className="search" onSubmit={searchForArtists}>
         <input placeholder="SEARCH ARTISTS" style={{ width: "500px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
@@ -97,41 +102,38 @@ export default function NewSetlistPage({ user, setUser }) {
       <br />
       <br />
       <br />
-   
+
 
       <div>
-      {
-        setlistResults.hasOwnProperty("code")
-          ?
-          <h3 style={{ color: "red" }}>NO RESULTS!!<br /> PLEASE CHOOSE ANOTHER ARTIST</h3>
-          :
-          <div>
-            <form className="button button4">SELECT VENUE</form>
-            <div className="artist" style={{ color: "white", overflowY: "scroll" }}>
-              {setlistResults.hasOwnProperty("setlist")
-                ?
-                setlistResults.setlist.map(function (s) {
-                  return (<h5 key={s.id} onClick={() => selectVenue(s, s.eventDate)}>{s.venue.name}, {s.venue.city.name}: {s.eventDate}</h5>)
-                })
-                :
-                ""
-              }
+        {
+          setlistResults.hasOwnProperty("code")
+            ?
+            <h3 style={{ color: "red" }}>NO RESULTS!!<br /> PLEASE CHOOSE ANOTHER ARTIST</h3>
+            :
+            <div>
+              <form className="button button4">SELECT VENUE</form>
+              <div className="artist" style={{ color: "white", overflowY: "scroll" }}>
+                {setlistResults.hasOwnProperty("setlist")
+                  ?
+                  setlistResults.setlist.map(function (s) {
+                    return (<h5 key={s.id} onClick={() => selectVenue(s, s.eventDate)}>{s.venue.name}, {s.venue.city.name}: {s.eventDate}</h5>)
+                  })
+                  :
+                  ""
+                }
+              </div>
             </div>
-          </div>
-      }
+        }
 
-      <br />
-      <br />
-      <br />
-      <div style={{ color: "#fd8e67" }}>{selectedVenue?.venueName}</div>
-      <br />
-      <br />
-      <br />  
+        <br /><br /><br />
+        <div style={{ color: "#fd8e67" }}>{selectedVenue?.venueName}</div>
+        <br /><br /><br />
       </div>
 
       <form className="search" onSubmit={submitExperience}>
         <button style={{ width: "500px" }} type="submit">SUBMIT EXPERIENCE</button>
       </form>
+      <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />
     </div>
 
   )

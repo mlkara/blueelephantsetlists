@@ -1,0 +1,10 @@
+.main-footer {
+    color: white; 
+    background-color: #223554;
+    padding-top:  3em;
+    position: relative; 
+    bottom: 0;
+    border-top: '1px solid #ddd';
+    height: '60px';
+    line-height: '60px';
+}

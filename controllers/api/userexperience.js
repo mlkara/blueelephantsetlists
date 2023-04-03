@@ -23,13 +23,14 @@ function deleteUserExperience(req, res, next) {
 
 
 function create(req, res) {
-//  try {
-//   const newUserExperience = await.UserExperience.create(req.body)
-//   console.log("create")
-// } catch (err) {
-//   console.log(err)
-//   res.status(400).json(err)
-// }
+  for (let key in req.body) {
+    if (req.body[key] === "") delete req.body[key];
+  }
+  const userExperience = new UserExperience(req.body);
+  userExperience.save(function (err) {
+    if (err) return res.redirect("/user/setlists/new");
+    res.redirect(`/userExperiences/${userExperience._id}`);
+  });
 };
 
 function update(req, res) {
