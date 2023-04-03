@@ -30,7 +30,7 @@ app.use('/api/artists', require('./routes/api/artists'));
 app.use('/api/venues', require('./routes/api/venues'));
 app.use('/api/tours', require('./routes/api/tours'));
 app.use('/api/setlists', require('./routes/api/setlist'));
-app.use('/api/userExperiences', require('./routes/api/userExperience'));
+app.use('/api/userexperiences', require('./routes/api/userexperience'));
 app.use('/api/photos', require('./routes/api/photos'));
 
 
