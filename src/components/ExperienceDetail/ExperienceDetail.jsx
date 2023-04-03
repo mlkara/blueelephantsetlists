@@ -23,7 +23,7 @@ export default function ExperienceDetail({ experience }) {
         // Clear the description and file inputs
         setTitle('');
         fileInputRef.current.value = '';
-      }c
+      }
 
     return (
         <>
