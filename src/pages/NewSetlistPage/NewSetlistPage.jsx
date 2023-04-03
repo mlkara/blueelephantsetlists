@@ -78,7 +78,7 @@ export default function NewSetlistPage({ user, setUser }) {
   // function UserExperience() {
   //   navigate('/userexperiences')
   // }
-  
+
   return (
     // <div style={{  backgroundImage: `url(${backgroundPhoto})`}}>
     <div>
