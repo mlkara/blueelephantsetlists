@@ -6,11 +6,11 @@ module.exports = {
 
 async function create(req, res) {
     try {
-        console.log("createTour", req.body, req.params.aid, req.params.vid)
+      
         req.body.artist = req.params.aid
         const tourInDb = await Tour.exists({name:req.body.name})
         if(tourInDb) {
-            const tour = await Tour.find({name:req.body.name})
+            const tour = await Tour.findOne({name:req.body.name})
             res.json(tour)
         }
         if(!tourInDb) {

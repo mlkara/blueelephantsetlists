@@ -8,7 +8,7 @@ async function create(req, res) {
     try {
         const venueInDb = await Venue.exists({setlistApiVenueId: req.body.setlistApiVenueId})
         if(venueInDb) {
-            const venue = await Venue.find({setlistApiVenueId: req.body.setlistApiVenueId})
+            const venue = await Venue.findOne({setlistApiVenueId: req.body.setlistApiVenueId})
             res.json(venue)
         }
         if(!venueInDb) {

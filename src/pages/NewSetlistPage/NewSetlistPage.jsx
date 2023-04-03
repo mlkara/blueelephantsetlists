@@ -8,7 +8,7 @@ import * as userExperiencesApi from "../../utilities/userExperiences-api"
 import { useNavigate } from "react-router-dom";
 import './NewSetlistPage.css';
 
-export default function NewSetlistPage({ user, setUser }) {
+export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
   const [artists, setArtists] = useState([]);
   const [artistFormData, setArtistFormData] = useState('');
   const [selectedArtist, setSelectedArtist] = useState(null)
@@ -37,14 +37,23 @@ export default function NewSetlistPage({ user, setUser }) {
     const tourName = selectedTour ? selectedTour : selectedArtist.name + "Tour"
     const newArtist = await artistsApi.addArtistToDb(selectedArtist)
     const newVenue = await venuesApi.addVenueToDb(selectedVenue)
-    navigate('/userexperiences')
-    const newTour = await toursApi.addTourToDb({ name: selectedTour }, newArtist._id, newVenue._id)
-    const newuserExperience = await userExperiencesApi.createUserExperience(newArtist._id, newVenue._id, newTour._id, newSetlist)
+    const newTour = await toursApi.addTourToDb({ name: tourName }, newArtist._id, newVenue._id)
+    console.log(newTour)
     const setData = {
       eventDate,
       set: selectedSetlist,
     }
-    const newSetlist = await setlistApi.addSetlistToDb(setData, newVenue._id)
+    const newSetlist = await setlistApi.addSetlistToDb(setData, newVenue._id, newArtist._id)
+    const experienceData = {
+      artist: newArtist._id,
+      venue: newVenue._id,
+      tour: newTour._id,
+      setlist: newSetlist._id, 
+    }
+    const allUserExperiences = await userExperiencesApi.createUserExperience(experienceData)
+    console.log(allUserExperiences)
+    setUserExperiences(allUserExperiences)
+    navigate('/userexperiences')
   }
 
   function selectArtist(mbid) {
@@ -72,7 +81,6 @@ export default function NewSetlistPage({ user, setUser }) {
     setSelectedVenue(venueInfo)
     setSelectedSetlist(v.sets.set[0].song)
     setSelectedTour(v.tour?.name)
-    console.log(venueInfo)
   }
 
   // function UserExperience() {
@@ -86,14 +94,17 @@ export default function NewSetlistPage({ user, setUser }) {
       <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />
 
 
-      <h1 style={{ color: "white" }}>ADD SETLIST</h1>
+      <h1 style={{ textAlign: 'center', color: "white" }}>ADD SETLIST</h1>
+    
       <form className="search" onSubmit={searchForArtists}>
         <input placeholder="SEARCH ARTISTS" style={{ width: "500px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
-        <button style={{ width: "500px" }} type="submit">SEARCH</button>
+        <button style={{ textAlign: 'center', display: "inlineBlock", width: "500px" }} type="submit">SEARCH</button>
       </form>
       <div className="artist" style={{ color: "white" }}>
         {artists.map(function (a) { return (<div key={a.mbid} onClick={() => selectArtist(a.mbid)}>{a.name}</div>) })}
       </div>
+      
+
 
       <br />
       <br />
@@ -102,6 +113,7 @@ export default function NewSetlistPage({ user, setUser }) {
       <br />
       <br />
       <br />
+  
 
 
       <div>
@@ -111,8 +123,8 @@ export default function NewSetlistPage({ user, setUser }) {
             <h3 style={{ color: "red" }}>NO RESULTS!!<br /> PLEASE CHOOSE ANOTHER ARTIST</h3>
             :
             <div>
-              <form className="button button4">SELECT VENUE</form>
-              <div className="artist" style={{ color: "white", overflowY: "scroll" }}>
+              <form style={{ textAlign: 'center', display: "inlineBlock",}}className="button button4">SELECT VENUE</form>
+              <div className="artist" style={{ textAlign: 'center', display: "inlineBlock", color: "white", overflowY: "scroll" }}>
                 {setlistResults.hasOwnProperty("setlist")
                   ?
                   setlistResults.setlist.map(function (s) {
@@ -131,7 +143,7 @@ export default function NewSetlistPage({ user, setUser }) {
       </div>
 
       <form className="search" onSubmit={submitExperience}>
-        <button style={{ width: "500px" }} type="submit">SUBMIT EXPERIENCE</button>
+        <button style={{ display: "inlineBlock", width: "500px", borderRadius: "30px 30px 30px 30px"}} type="submit">SUBMIT EXPERIENCE</button>
       </form>
       <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />
     </div>

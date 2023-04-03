@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 // assign the user object from the JWT to req.user
 
 const port = process.env.PORT || 3001;
-
+app.use(require('./config/checkToken'));
 // Put API routes here, before the "catch all" route
 const ensureLoggedIn = require('./config/ensureLoggedIn');
 app.use('/api/users', require('./routes/api/users'));
@@ -31,9 +31,7 @@ app.use('/api/venues', require('./routes/api/venues'));
 app.use('/api/tours', require('./routes/api/tours'));
 app.use('/api/setlists', require('./routes/api/setlist'));
 app.use('/api/userExperiences', require('./routes/api/userExperience'));
-//  app.use('/api/reviews', require('./routes/api/reviews'));
-
-
+app.use('/api/photos', require('./routes/api/photos'));
 
 
 // The following "catch all" route (note the *) is necessary

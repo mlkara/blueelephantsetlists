@@ -35,7 +35,7 @@ const userExperienceSchema = new Schema({
   artist: {type: Schema.Types.ObjectId, ref: 'Artist'}, 
   venue: {type: Schema.Types.ObjectId, ref: 'Venue'}, 
   setlist: {type: Schema.Types.ObjectId, ref: 'Setlist'}, 
-  eventDate: Date,
+  tour: {type: Schema.Types.ObjectId, ref: 'Tour'}, 
   images:[photoSchema],
   reviews: [reviewSchema],
 }, {

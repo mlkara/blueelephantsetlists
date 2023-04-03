@@ -3,7 +3,8 @@ const UserExperience = require('../../models/userExperience');
 module.exports = {
   create,
   delete: deleteUserExperience,
-  update
+  update,
+  getAllUserExperiences
 }
 
 function deleteUserExperience(req, res, next) {
@@ -21,16 +22,28 @@ function deleteUserExperience(req, res, next) {
   });
 }
 
+async function getAllUserExperiences(req, res) {
+  try {
+    const allUserExperiences = await UserExperience.find({user: req.user._id}).populate("tour").populate("artist").populate("venue").populate("setlist").exec()
+    res.json(allUserExperiences);
+  } catch (err) {
 
-function create(req, res) {
-  for (let key in req.body) {
-    if (req.body[key] === "") delete req.body[key];
+    res.status(400).json(err);
   }
-  const userExperience = new UserExperience(req.body);
-  userExperience.save(function (err) {
-    if (err) return res.redirect("/user/setlists/new");
-    res.redirect(`/userExperiences/${userExperience._id}`);
-  });
+}
+
+async function create(req, res) {
+  try {
+    req.body.user = req.user._id
+    // console.log(req.body)
+    const newExperience = await UserExperience.create(req.body);
+    const allUserExperiences = await UserExperience.find({user: req.user._id}).populate("tour").populate("artist").populate("venue").populate("setlist").exec()
+     console.log(allUserExperiences)
+    res.json(allUserExperiences);
+  } catch (err) {
+    // console.log(err)
+    res.status(400).json(err);
+  }
 };
 
 function update(req, res) {

@@ -4,7 +4,7 @@ const setlistsCtrl = require('../../controllers/api/setlists');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 
-router.post("/venue/:vid", setlistsCtrl.create) 
+router.post("/venue/:vid/artist/:aid", setlistsCtrl.create) 
 
 
 module.exports = router;
