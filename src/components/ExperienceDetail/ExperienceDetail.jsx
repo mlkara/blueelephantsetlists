@@ -28,9 +28,9 @@ export default function ExperienceDetail({ experience }) {
     return (
         <>
         <h1>{experience.artist.name}</h1>
-        <h1>{experience.artist.name}</h1>
-        <h1>{experience.artist.name}</h1>
-        <h1>{experience.artist.name}</h1>
+        <h1>{experience.venue.venueName}</h1>
+        <h1>{experience.tour.name}</h1>
+        {/* <h1>{experience.setlist.set.0.name}</h1> */}
        
        
     <main className="App flex-ctr-ctr">
