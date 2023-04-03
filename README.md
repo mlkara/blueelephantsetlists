@@ -18,7 +18,7 @@
 
   ## :pencil: Description
 
-I love rock n' roll, so put another dime in the jukebox, baby! Blue Elephant Setlists is a hub where concertgoers save their setlists from concerts. And a place to keep mementos like ticket stubs, posters, photos, and verbal renderings of your experiences. Save the night and never forget the moment! We will rock you!! 
+I love rock n' roll, so put another dime in the jukebox, baby, and we will rock you! Blue Elephant Setlists is a hub where concertgoers save setlists from concerts. Also, keep mementos like ticket stubs, posters, photos, and verbal renderings of your experiences. Save the night and never forget the moment! As Bob Dylan once said, "Take care of all your memories. For you cannot relive them."
 
   </div>
 
