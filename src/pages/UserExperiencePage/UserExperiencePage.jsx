@@ -43,9 +43,9 @@ export default function UserExperiencePage({ userExperiences, setUserExperiences
 
    
   
-        <h1 style={{ fontWeight: "bold", fontSize: "60px", textAlign: "center", color: "white", alignText: 'center' }}>MY MUSIC</h1>
+        <h1 style={{ paddingTop: "5%", fontWeight: "bold", fontSize: "60px", textAlign: "center", color: "white", alignText: 'center' }}>MY MUSIC</h1>
         <h1 style={{ fontWeight: "bold", textAlign: "center", fontSize: "30px", color: "white" }}>LIVE YOUR MUSIC ADVENTURES</h1>
-        <h1 style={{ fontWeight: "bold", textAlign: "center", fontSize: "20px", color: 'white', paddingBottom: "50px" }}>I don't know where I'm going from here, but I promise it won't be boring. —David Bowie</h1>
+        <h1 style={{ padding: "5%",fontWeight: "bold", textAlign: "center", fontSize: "20px", color: 'white', paddingBottom: "50px" }}>I don't know where I'm going from here, but I promise it won't be boring. —David Bowie</h1>
 
     </ div>
     </div>

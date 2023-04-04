@@ -19,7 +19,8 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
   const [selectedTour, setSelectedTour] = useState('')
   const navigate = useNavigate();
 
-  //const backgroundPhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
+  const herePhoto = new URL("https://i.imgur.com/iP2LZ3P.jpg")
+
 
   async function searchForArtists(evt) {
     evt.preventDefault();
@@ -86,10 +87,29 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
   return (
     // <div style={{  backgroundImage: `url(${backgroundPhoto})`}}>
     <div style={{display: "block", margin: "auto",}} >
-
-
-      <h1 style={{ textAlign: 'center', color: "white", paddingTop: "100px", paddingBottom: "50px" }}>ADD SETLIST</h1>
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div style={{ backgroundImage: `url(${herePhoto}` }}>
+    <div style={{backgroundColor: "white",
+    backgroundColor: "#223554",
+    color: "white",
+    borderRadius: "0.8em",
+    boxShadow: "0 0 0 0.4em #fd8e67",
+    outline: "0.em solid #fd8e67",
+    padding: "12",
+    marginLeft: "200px",
+    marginRight: "200px",
+    position: "relative"
+    }}>
+      <h1 style={{ fontSize: "60px", textAlign: 'center', color: "white",  padding: "15%" }}>ADD SETLIST</h1>
+</div>
+</div>
       <form style={{ display: "block", margin: "auto", width: "500px", borderRadius: "30px 30px 30px 30px" }} className="search" onSubmit={searchForArtists}>
         <input placeholder="SEARCH ARTISTS" style={{ display: "block", margin: "auto", width: "500px", borderRadius: "30px 30px 30px 30px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
         <br />
