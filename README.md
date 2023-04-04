@@ -24,15 +24,15 @@ I love rock n' roll, so put another dime in the jukebox, baby, and we will rock 
 
    ## :camera_flash: Screenshots 
    <h3>Home Page</h3> | <img
-    src="https://i.imgur.com/MHLac1D.jpg"
+    src="https://i.imgur.com/6jWq4IG.png"
     width="700"
   /> 
    <h3>User Page</h3> | <img
-    src="https://i.imgur.com/MHLac1D.jpg"
+    src="https://i.imgur.com/8XEoKjB.png"
     width="700"
   /> 
  <h3>Search Page</h3> | <img
-  src="https://i.imgur.com/7NR3lAM.png"
+  src="https://i.imgur.com/RTKWZEa.png"
   width="700"
   /> 
 
@@ -43,7 +43,7 @@ I love rock n' roll, so put another dime in the jukebox, baby, and we will rock 
   ![Node](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
   ![AWS S3](https://img.shields.io/badge/-AWS_S3-05122A?style=flat&logo=amazons3)
   ![JWT](https://img.shields.io/badge/-JSON_Web_Tokens-05122A?style=flat&logo=jsonwebtokens)
-   ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
+  ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
   ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
   ![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
   ![Trello](https://img.shields.io/badge/-Trello-05122A?style=flat&logo=trello)
