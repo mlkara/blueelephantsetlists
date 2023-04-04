@@ -10,15 +10,15 @@ export default function AuthPage({ setUser }) {
 
   return (
     <main>
-    
-    <img src={logoPhoto} />
+
+      <img src={logoPhoto} />
       <h1></h1>
       <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
-      
-      { showSignUp ?
-          <SignUpForm setUser={setUser} />
-          :
-          <LoginForm setUser={setUser} />
+
+      {showSignUp ?
+        <SignUpForm setUser={setUser} />
+        :
+        <LoginForm setUser={setUser} />
       }
     </main>
   );

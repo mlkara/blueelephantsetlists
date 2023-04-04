@@ -38,7 +38,6 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
     const newArtist = await artistsApi.addArtistToDb(selectedArtist)
     const newVenue = await venuesApi.addVenueToDb(selectedVenue)
     const newTour = await toursApi.addTourToDb({ name: tourName }, newArtist._id, newVenue._id)
-    console.log(newTour)
     const setData = {
       eventDate,
       set: selectedSetlist,
@@ -48,10 +47,10 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
       artist: newArtist._id,
       venue: newVenue._id,
       tour: newTour._id,
-      setlist: newSetlist._id, 
+      setlist: newSetlist._id,
+
     }
     const allUserExperiences = await userExperiencesApi.createUserExperience(experienceData)
-    console.log(allUserExperiences)
     setUserExperiences(allUserExperiences)
     navigate('/userexperiences')
   }
@@ -60,7 +59,7 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
     const selected = artists.find(a => a.mbid === mbid)
     setSelectedArtist(selected)
     getArtistSetlists(selected)
-                                                    
+
   }
 
   function selectVenue(v, date) {
@@ -83,35 +82,34 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
     setSelectedTour(v.tour?.name)
   }
 
-  // function UserExperience() {
-  //   navigate('/userexperiences')
-  // }
 
   return (
     // <div style={{  backgroundImage: `url(${backgroundPhoto})`}}>
-    <div>
+    <div style={{display: "block", margin: "auto",}} >
 
-     
-      <h1 style={{ textAlign: 'center', color: "white", padding: "100px" }}>ADD SETLIST</h1>
-    
-      <form className="search" onSubmit={searchForArtists}>
-        <input placeholder="SEARCH ARTISTS" style={{ width: "500px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
-        <button style={{ textAlign: 'center', display: "inlineBlock", width: "500px" }} type="submit">SEARCH</button>
+
+      <h1 style={{ textAlign: 'center', color: "white", paddingTop: "100px", paddingBottom: "50px" }}>ADD SETLIST</h1>
+
+      <form style={{ display: "block", margin: "auto", width: "500px", borderRadius: "30px 30px 30px 30px" }} className="search" onSubmit={searchForArtists}>
+        <input placeholder="SEARCH ARTISTS" style={{ display: "block", margin: "auto", width: "500px", borderRadius: "30px 30px 30px 30px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
+        <br />
+        <button style={{ margin: "auto", display: "block", width: "500px", borderRadius: "30px 30px 30px 30px" }} type="submit">SEARCH</button>
+        <br />
       </form>
-      <div className="artist" style={{ color: "white" }}>
+      <div className="artist" style={{ textAlign: "center", color: "white" }}>
         {artists.map(function (a) { return (<div key={a.mbid} onClick={() => selectArtist(a.mbid)}>{a.name}</div>) })}
       </div>
-      
 
 
+
       <br />
       <br />
       <br />
-      <div style={{ color: "#fd8e67" }}>{selectedArtist?.name}</div>
+      <div style={{ textAlign: "center", color: "#fd8e67" }}>{selectedArtist?.name}</div>
       <br />
       <br />
       <br />
-  
+
 
 
       <div>
@@ -121,8 +119,8 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
             <h3 style={{ color: "red" }}>NO RESULTS!!<br /> PLEASE CHOOSE ANOTHER ARTIST</h3>
             :
             <div>
-              <form style={{ textAlign: 'center', display: "inlineBlock",}}className="button button4">SELECT VENUE</form>
-              <div className="artist" style={{ textAlign: 'center', display: "inlineBlock", color: "white", overflowY: "scroll" }}>
+              <form style={{ display: "block", marginLeft: "auto", marginRight: "auto", width: "20%", margin: "auto", textAlign: 'center' }} className="button button4">SELECT VENUE</form>
+              <div className="artist" style={{ textAlign: "center", display: "block", margin: "auto", marginLeft: "auto", marginRight: "auto", color: "white" }}>
                 {setlistResults.hasOwnProperty("setlist")
                   ?
                   setlistResults.setlist.map(function (s) {
@@ -136,14 +134,16 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
         }
 
         <br /><br /><br />
-        <div style={{ color: "#fd8e67" }}>{selectedVenue?.venueName}</div>
+        <div style={{ textAlign: "center", color: "#fd8e67" }}>{selectedVenue?.venueName}</div>
         <br /><br /><br />
       </div>
 
-      <form className="search" onSubmit={submitExperience}>
-        <button style={{ display: "inlineBlock", width: "500px", borderRadius: "30px 30px 30px 30px"}} type="submit">SUBMIT EXPERIENCE</button>
+      <form style={{display: "block"}} className="search" onSubmit={submitExperience}>
+        <button style={{ display: "block", margin: "auto", width: "500px", borderRadius: "30px 30px 30px 30px" }} type="submit">SUBMIT EXPERIENCE</button>
       </form>
+      <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />      <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />
       <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />
+
     </div>
 
   )

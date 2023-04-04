@@ -14,32 +14,32 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [userExperiences, setUserExperiences] = useState([])
 
-  useEffect(function() {
+  useEffect(function () {
     userExperiencesAPI.getAll().then(experiences => setUserExperiences(experiences));
   }, []);
 
   return (
 
-  
-<main>
-  { user ?
-      <>
-        <NavBar user={user} setUser={setUser} />
-        <Routes>
-          {/* Route components in here */}
-          <Route path="/" element={<HomePage />} />
-          <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} setUserExperiences={setUserExperiences} />} />
-          <Route path="/userexperiences" element={<UserExperiencePage userExperiences={userExperiences} setUserExperiences={setUserExperiences}/>} />
-        </Routes>
-    
-       <Footer />
-     
-      </>
-      :
-      <AuthPage setUser={setUser} />
-  }
-</main>
 
- 
+    <main>
+      {user ?
+        <>
+          <NavBar user={user} setUser={setUser} />
+          <Routes>
+            {/* Route components in here */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/setlists/new" element={<NewSetlistPage user={user} setUser={setUser} setUserExperiences={setUserExperiences} />} />
+            <Route path="/userexperiences" element={<UserExperiencePage userExperiences={userExperiences} setUserExperiences={setUserExperiences} />} />
+          </Routes>
+
+          <Footer />
+
+        </>
+        :
+        <AuthPage setUser={setUser} />
+      }
+    </main>
+
+
   );
 }

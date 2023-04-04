@@ -1,50 +1,52 @@
 .search {
-    text-align: center;
-    display: inline-block;
-   
+  text-align: center;
+  display: inline-block;
+
 }
 
 .button {
-    background-color: #697866;
-    color: white;
-    border: none;
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    overflow-y: scroll;
-    overflow-x: scroll;
+  background-color: #697866;
+  color: white;
+  border: none;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  overflow-y: scroll;
+  overflow-x: scroll;
 
-  }
+}
 
-  .button4 {border-radius: 12px;}
+.button4 {
+  border-radius: 12px;
+}
 
-  
 
-  cursor>a {
-    margin: 20px;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    color: white;
-  }
-  
-  cursor>a:hover:not(.active) {
-    color: #fd8e67;
-    background-color: #697866;
-  }
-  
-  cursor>a.active {
-    color: white;
-    cursor: default;
-  }
 
-  .artist {
-      cursor: grab;
-  }
+cursor>a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
 
-  :hover {
-    color: #fd8e67; 
-  }
+cursor>a:hover:not(.active) {
+  color: #fd8e67;
+  background-color: #697866;
+}
+
+cursor>a.active {
+  color: white;
+  cursor: default;
+}
+
+.artist {
+  cursor: grab;
+}
+
+:hover {
+  color: #fd8e67;
+}

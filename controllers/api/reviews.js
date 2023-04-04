@@ -3,7 +3,7 @@ const Film = require('../models/film');
 module.exports = {
   create,
   delete: deleteReview,
-  edit, 
+  edit,
   update
 };
 
@@ -36,18 +36,18 @@ function create(req, res) {
 };
 
 function edit(req, res) {
-  UserExperience.findOne({'reviews._id': req.params.id}, function(err, userExperience) {
+  UserExperience.findOne({ 'reviews._id': req.params.id }, function (err, userExperience) {
     const review = userExperience.reviews.id(req.params.id);
-    res.render('reviews/edit', {review});
+    res.render('reviews/edit', { review });
   });
 };
 
 function update(req, res) {
-  UserExperience.findOne({'reviews._id': req.params.id}, function(err, userExperience) {
+  UserExperience.findOne({ 'reviews._id': req.params.id }, function (err, userExperience) {
     const reviewSubdoc = userExperience.reviews.id(req.params.id);
     if (!reviewSubdoc.user.equals(req.user._id)) return res.redirect(`/userExperiences/${userExperience._id}`);
     reviewSubdoc.content = req.body.content;
-    userExperience.save(function(err) {
+    userExperience.save(function (err) {
       res.redirect(`/userExperiences/${userExperience._id}`);
     });
   });

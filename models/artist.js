@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const artistSchema = new Schema({
-    mbid: {
-      type: String,
-      required: true
-    },
-    name: {
-      type: String,
-      required: true
-    },
-    sortName: {
-      type: String,
-      required: true
-    },
-    disambiguation: {
-      type: String,
-     
-    },
-  
+  mbid: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  sortName: {
+    type: String,
+    required: true
+  },
+  disambiguation: {
+    type: String,
+
+  },
+
 }, {
   timestamps: true,
 });

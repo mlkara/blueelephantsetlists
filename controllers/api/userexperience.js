@@ -24,7 +24,7 @@ function deleteUserExperience(req, res, next) {
 
 async function getAllUserExperiences(req, res) {
   try {
-    const allUserExperiences = await UserExperience.find({user: req.user._id}).populate("tour").populate("artist").populate("venue").populate("setlist").exec()
+    const allUserExperiences = await UserExperience.find({ user: req.user._id }).populate("tour").populate("artist").populate("venue").populate("setlist").exec()
     res.json(allUserExperiences);
   } catch (err) {
 
@@ -35,13 +35,10 @@ async function getAllUserExperiences(req, res) {
 async function create(req, res) {
   try {
     req.body.user = req.user._id
-    // console.log(req.body)
     const newExperience = await UserExperience.create(req.body);
-    const allUserExperiences = await UserExperience.find({user: req.user._id}).populate("tour").populate("artist").populate("venue").populate("setlist").exec()
-     console.log(allUserExperiences)
+    const allUserExperiences = await UserExperience.find({ user: req.user._id }).populate("tour").populate("artist").populate("venue").populate("setlist").exec()
     res.json(allUserExperiences);
   } catch (err) {
-    // console.log(err)
     res.status(400).json(err);
   }
 };
