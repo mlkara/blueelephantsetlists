@@ -23,15 +23,15 @@ I love rock n' roll, so put another dime in the jukebox, baby, and we will rock 
   </div>
 
    ## :camera_flash: Screenshots 
-   <h3>Home Page</h3> | <img
+   <h3>Home Page</h3> <img
     src="https://i.imgur.com/6jWq4IG.png"
     width="700"
   /> 
-   <h3>User Page</h3> | <img
+   <h3>User Page</h3> <img
     src="https://i.imgur.com/8XEoKjB.png"
     width="700"
   /> 
- <h3>Search Page</h3> | <img
+ <h3>Search Page</h3> <img
   src="https://i.imgur.com/RTKWZEa.png"
   width="700"
   /> 
