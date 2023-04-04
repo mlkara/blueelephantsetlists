@@ -11,9 +11,9 @@ export default function AuthPage({ setUser }) {
   return (
     <main>
 
-      <img src={logoPhoto} />
+      <img style={{display: "block", marginLeft: "auto", marginRight: "auto"}}src={logoPhoto} />
       <h1></h1>
-      <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
+      <button style={{display: "block", marginLeft: "auto", marginRight: "auto"}}onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
 
       {showSignUp ?
         <SignUpForm setUser={setUser} />

@@ -1,4 +1,4 @@
-const UserExperience = require('../../models/userExperience');
+const UserExperience = require('../../models/userexperience');
 
 module.exports = {
   create,
