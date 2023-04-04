@@ -18,10 +18,12 @@ export default function UserExperiencePage({ userExperiences, setUserExperiences
   return (
     <>
     <div style={{  backgroundImage: `url(${herePhoto})`}}></div>
+
+
     <div>
-        <h1 style={{ color: "white", alignText: 'center' }}>MY MUSIC</h1>
+        <h1 style={{ color: "white", alignText: 'center', paddingTop: "100px" }}>MY MUSIC</h1>
         <h2 style={{ fontSize: "12px", color: "white" }}>LIVE YOUR MUSIC ADVENTURES</h2>
-        <h3 style={{ fontSize: "12px", color: '#fd8e67' }}>I don't know where I'm going from here, but I promise it won't be boring. —David Bowie</h3>
+        <h3 style={{ fontSize: "12px", color: '#fd8e67', paddingBottom: "50px" }}>I don't know where I'm going from here, but I promise it won't be boring. —David Bowie</h3>
       </div>
       <div>{displayExperiences}</div>
     </>

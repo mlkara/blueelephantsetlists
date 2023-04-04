@@ -27,9 +27,10 @@ export default function ExperienceDetail({ experience }) {
 
     return (
         <>
-        <h1>{experience.artist.name}</h1>
-        <h1>{experience.venue.venueName}</h1>
-        <h1>{experience.tour.name}</h1>
+        <h1 style={{ color: "white", textAlign: 'center', display: "inlineBlock" }}>{experience.artist.name}</h1>
+        <h2 style={{ color: "white", textAlign: 'center', display: "inlineBlock" }}>Venue: {experience.venue.venueName}</h2>
+        <h2 style={{ color: "white", textAlign: 'center', display: "inlineBlock" }}>Tour: {experience.tour.name}</h2>
+        <h2 style={{ color: "white", textAlign: 'center', display: "inlineBlock" }}>Date: {experience.setlist.eventdate}</h2>
         {/* <h1>{experience.setlist.set.0.name}</h1> */}
        
        
@@ -43,6 +44,7 @@ export default function ExperienceDetail({ experience }) {
         {photos.map(p => <PhotoCard photo={p} key={p._id} />)}
       </section>
     </main>
+    <h1 style={{ textAlign: 'center', display: "inlineBlock" }}>⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯</h1>
 </>
         )
     }

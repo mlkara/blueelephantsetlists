@@ -91,10 +91,8 @@ export default function NewSetlistPage({ user, setUser, setUserExperiences }) {
     // <div style={{  backgroundImage: `url(${backgroundPhoto})`}}>
     <div>
 
-      <br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />
-
-
-      <h1 style={{ textAlign: 'center', color: "white" }}>ADD SETLIST</h1>
+     
+      <h1 style={{ textAlign: 'center', color: "white", padding: "100px" }}>ADD SETLIST</h1>
     
       <form className="search" onSubmit={searchForArtists}>
         <input placeholder="SEARCH ARTISTS" style={{ width: "500px" }} type="text" value={artistFormData} onChange={(evt) => setArtistFormData(evt.target.value)} />
