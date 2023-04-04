@@ -24,9 +24,11 @@ export default function ExperienceDetail({ experience }) {
     setTitle('');
     fileInputRef.current.value = '';
   }
-  console.log(experience.setlist.eventDate)
+  
   return (
     <>
+    <br />
+    <br />
       <h1 style={{ color: "white", textAlign: 'center', display: "inlineBlock" }}>{experience.artist.name}</h1>
       <h2 style={{ color: "white", textAlign: 'center', display: "inlineBlock" }}>Venue: {experience.venue.venueName}</h2>
       <h2 style={{ color: "#697866", textAlign: 'center', display: "inlineBlock" }}>Tour: {experience.tour.name}</h2>
@@ -37,7 +39,8 @@ export default function ExperienceDetail({ experience }) {
       
 
         }
-
+<br />
+    <br />
 
       <main className="App flex-ctr-ctr">
         <section className="flex-ctr-ctr">

@@ -28,7 +28,7 @@ I love rock n' roll, so put another dime in the jukebox, baby, and we will rock 
     width="700"
   /> 
    <h3>User Page</h3> <img
-    src="https://i.imgur.com/8XEoKjB.png"
+    src="https://i.imgur.com/JVNpX0l.png"
     width="700"
   /> 
  <h3>Search Page</h3> <img
